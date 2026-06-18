@@ -1,0 +1,35 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { title, description, pubDate, tags } = post.data;
+const formattedDate = pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<article class="blog-card">
+  <a href={`/blog/${post.id}`} class="blog-card__link">
+    <time class="blog-card__date" datetime={pubDate.toISOString()}>
+      {formattedDate}
+    </time>
+    <h2 class="blog-card__title">{title}</h2>
+    <p class="blog-card__description">{description}</p>
+    {
+      tags.length > 0 && (
+        <ul class="blog-card__tags" aria-label="Tags">
+          {tags.map((tag) => (
+            <li class="tag">{tag}</li>
+          ))}
+        </ul>
+      )
+    }
+    <span class="blog-card__cta">Read article →</span>
+  </a>
+</article>

@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout
+  title="Blog"
+  description="Read the latest articles on SEO, content strategy, technical optimization, and building high-performance websites."
+>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Blog</h1>
+      <p class="page-hero__lead">
+        Insights and guides to help you grow organic traffic and build better websites.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      {
+        posts.length > 0 ? (
+          <div class="grid grid--blog">
+            {posts.map((post) => (
+              <BlogCard post={post} />
+            ))}
+          </div>
+        ) : (
+          <p class="empty-state">No posts yet. Check back soon!</p>
+        )
+      }
+    </div>
+  </section>
+</BaseLayout>

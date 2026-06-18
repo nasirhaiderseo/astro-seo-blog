@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const services = [
+  {
+    title: 'SEO Audits',
+    description:
+      'Comprehensive technical and on-page audits that identify quick wins and long-term opportunities for organic growth.',
+    features: ['Technical crawl analysis', 'On-page optimization review', 'Competitor benchmarking', 'Prioritized action plan'],
+  },
+  {
+    title: 'Content Strategy',
+    description:
+      'Data-driven content roadmaps aligned with search intent, business goals, and your audience\'s needs.',
+    features: ['Keyword research & clustering', 'Editorial calendar planning', 'Content gap analysis', 'Pillar page architecture'],
+  },
+  {
+    title: 'Site Development',
+    description:
+      'High-performance websites built with Astro and modern static site tools—fast, accessible, and SEO-ready from day one.',
+    features: ['Astro & Jamstack builds', 'Core Web Vitals optimization', 'Structured data implementation', 'Sitemap & robots.txt setup'],
+  },
+];
+---
+
+<BaseLayout
+  title="Services"
+  description="Professional SEO audits, content strategy, and high-performance website development services to grow your organic traffic."
+>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Our Services</h1>
+      <p class="page-hero__lead">
+        End-to-end SEO and web development services designed to help you rank higher,
+        attract qualified traffic, and convert visitors into customers.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid--services">
+        {
+          services.map((service) => (
+            <div class="service-card">
+              <h2>{service.title}</h2>
+              <p>{service.description}</p>
+              <ul class="service-card__features">
+                {service.features.map((feature) => (
+                  <li>{feature}</li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container container--narrow">
+      <div class="prose prose--center">
+        <h2>How We Work</h2>
+        <p>
+          Every engagement starts with understanding your business, audience, and goals.
+          We then deliver a tailored plan with clear milestones, transparent reporting,
+          and measurable outcomes.
+        </p>
+        <ol>
+          <li><strong>Discovery</strong> — Audit your current site, competitors, and market position.</li>
+          <li><strong>Strategy</strong> — Build a prioritized roadmap with timelines and KPIs.</li>
+          <li><strong>Execution</strong> — Implement optimizations, create content, and ship improvements.</li>
+          <li><strong>Reporting</strong> — Track rankings, traffic, and conversions with monthly reviews.</li>
+        </ol>
+        <p>
+          <a href="/contact" class="btn btn--primary">Request a Consultation</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

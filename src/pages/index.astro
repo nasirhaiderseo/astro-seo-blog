@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BlogCard from '../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+---
+
+<BaseLayout
+  title="Astro SEO Blog"
+  description="Expert insights on SEO, content strategy, and building high-performance websites with modern tools like Astro."
+>
+  <section class="hero">
+    <div class="container">
+      <p class="hero__eyebrow">SEO · Content · Web Performance</p>
+      <h1 class="hero__title">Grow Your Organic Traffic with Smarter Content</h1>
+      <p class="hero__subtitle">
+        Practical guides, proven strategies, and technical insights to help you rank higher,
+        convert better, and build websites that search engines love.
+      </p>
+      <div class="hero__actions">
+        <a href="/blog" class="btn btn--primary">Read the Blog</a>
+        <a href="/services" class="btn btn--secondary">Our Services</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>What We Cover</h2>
+        <p>Everything you need to build a sustainable organic growth engine.</p>
+      </div>
+      <div class="grid grid--3">
+        <div class="feature-card">
+          <div class="feature-card__icon" aria-hidden="true">🔍</div>
+          <h3>On-Page SEO</h3>
+          <p>Title tags, headings, internal linking, and content optimization that moves the needle.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon" aria-hidden="true">📈</div>
+          <h3>Content Strategy</h3>
+          <p>Keyword research, content clusters, and editorial calendars that drive qualified traffic.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon" aria-hidden="true">⚡</div>
+          <h3>Technical SEO</h3>
+          <p>Sitemaps, structured data, Core Web Vitals, and crawlability for modern static sites.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>Latest Articles</h2>
+        <a href="/blog" class="link-arrow">View all posts →</a>
+      </div>
+      <div class="grid grid--blog">
+        {posts.map((post) => <BlogCard post={post} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="container cta-banner__inner">
+      <div>
+        <h2>Ready to improve your SEO?</h2>
+        <p>Let's discuss how we can help you grow organic traffic and build a content engine that scales.</p>
+      </div>
+      <a href="/contact" class="btn btn--primary">Get in Touch</a>
+    </div>
+  </section>
+</BaseLayout>

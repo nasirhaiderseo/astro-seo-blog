@@ -1,0 +1,27 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <a href="/" class="logo logo--footer">Astro SEO Blog</a>
+      <p class="footer__tagline">
+        Practical insights on SEO, content strategy, and modern web development.
+      </p>
+    </div>
+
+    <nav class="footer__nav" aria-label="Footer navigation">
+      <ul class="footer__links">
+        <li><a href="/about">About</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="container footer__bottom">
+    <p>&copy; {year} Astro SEO Blog. All rights reserved.</p>
+  </div>
+</footer>
