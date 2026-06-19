@@ -1,9 +1,7 @@
 ---
 title: "How to Build a Content Strategy That Drives Organic Traffic"
-description: "A step-by-step guide to creating a content velocity engine that attracts qualified organic traffic, earns natural backlinks, and supports your off-page SEO campaigns."
 pubDate: 2026-02-18
 author: "Elena Rodriguez"
-image: "/blog-placeholder.svg"
 tags: ["Content Strategy", "Content Velocity", "SEO"]
 ---
 

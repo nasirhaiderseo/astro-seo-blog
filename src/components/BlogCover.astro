@@ -1,0 +1,31 @@
+---
+interface Props {
+  title: string;
+  image?: string;
+  aspect?: 'wide' | 'card' | 'featured';
+  class?: string;
+}
+
+const { title, image, aspect = 'wide', class: className = '' } = Astro.props;
+
+const aspectClass = {
+  wide: 'aspect-[21/9]',
+  card: 'aspect-[16/10]',
+  featured: 'aspect-[4/3]',
+}[aspect];
+---
+
+<div class:list={['overflow-hidden border border-slate-200', aspectClass, className]}>
+  {
+    image ? (
+      <img src={image} alt="" class="h-full w-full object-cover" loading="lazy" />
+    ) : (
+      <div class="flex h-full w-full flex-col justify-end bg-soft p-6 sm:p-8 lg:p-10">
+        <p class="text-xs font-medium uppercase tracking-widest text-slate-400">Web Grouth</p>
+        <p class="mt-3 max-w-lg text-lg font-medium leading-snug text-charcoal sm:text-xl lg:text-2xl">
+          {title}
+        </p>
+      </div>
+    )
+  }
+</div>

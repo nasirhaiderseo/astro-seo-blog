@@ -3,113 +3,99 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 
 const milestones = [
-  { year: '2018', title: 'Founded', desc: 'Started as a boutique outreach agency serving SaaS startups.' },
-  { year: '2020', title: 'Network Scale', desc: 'Grew publisher network to 200+ vetted DR 40+ domains.' },
-  { year: '2022', title: 'Enterprise', desc: 'Launched enterprise tier with dedicated account teams and SLAs.' },
-  { year: '2026', title: 'Global', desc: '500+ clients across 30 countries. 2.4M links placed and counting.' },
+  { year: '2018', title: 'Founded', desc: 'Launched as a boutique outreach firm for SaaS companies.' },
+  { year: '2020', title: 'Publisher network', desc: 'Expanded to 200+ vetted editorial domains.' },
+  { year: '2022', title: 'Enterprise tier', desc: 'Introduced dedicated account teams and formal SLAs.' },
+  { year: '2026', title: 'Global reach', desc: '500+ clients across 30 countries.' },
 ];
 
 const values = [
   {
-    title: 'White-Hat Only',
-    desc: 'No PBNs, no link schemes. Every placement meets Google\'s quality guidelines and editorial standards.',
+    title: 'White-hat only',
+    desc: 'No PBNs, no schemes. Every placement meets editorial and search quality standards.',
   },
   {
-    title: 'Transparency First',
-    desc: 'Full reporting on every link: URL, anchor text, DR, traffic estimates, and indexing status.',
+    title: 'Transparency',
+    desc: 'Full reporting on URL, anchor text, domain metrics, and indexing status.',
   },
   {
-    title: 'Outcomes Over Output',
-    desc: 'We measure success by rankings, referral traffic, and revenue — not vanity link counts.',
+    title: 'Measured outcomes',
+    desc: 'We track rankings, referral traffic, and revenue — not link counts alone.',
   },
   {
-    title: 'Enterprise Ready',
-    desc: 'SOC 2 processes, NDAs, dedicated account managers, and custom SLAs for Fortune 500 teams.',
+    title: 'Enterprise ready',
+    desc: 'NDAs, dedicated managers, and processes built for larger marketing teams.',
   },
 ];
 
 const team = [
-  { name: 'David Park', role: 'CEO & Founder', focus: 'Strategy & Partnerships' },
-  { name: 'Sarah Mitchell', role: 'Head of Outreach', focus: 'Publisher Relations' },
-  { name: 'James Chen', role: 'Director of SEO', focus: 'Technical & On-Page' },
-  { name: 'Elena Rodriguez', role: 'Content Director', focus: 'Editorial & Velocity' },
+  { name: 'David Park', role: 'CEO & Founder' },
+  { name: 'Sarah Mitchell', role: 'Head of Outreach' },
+  { name: 'James Chen', role: 'Director of SEO' },
+  { name: 'Elena Rodriguez', role: 'Content Director' },
 ];
 ---
 
 <BaseLayout
   title="About Us"
-  description="Web Grouth is an enterprise-grade SEO and link building partner. Learn our story, values, and the team behind 2.4M+ white-hat placements."
+  description="Web Grouth is an enterprise-grade SEO and link building partner. Learn about our approach, team, and standards."
 >
   <PageHero
-    label="About Web Grouth"
-    title="Enterprise Outreach. White-Hat Authority."
-    description="We built Web Grouth for SEO teams who refuse to compromise — premium placements, transparent reporting, and strategies that compound for years."
+    label="About"
+    title="Built for teams that take SEO seriously"
+    description="We are an outreach and link building partner for companies that need scale, editorial quality, and honest reporting."
   />
 
-  <section class="py-20">
+  <section class="py-16 lg:py-20">
     <div class="container-site">
-      <div class="grid items-center gap-12 lg:grid-cols-2">
-        <div class="reveal-left">
-          <span class="section-label">Our Story</span>
-          <h2 class="mt-4 text-3xl font-bold text-white">Born from Frustration with Black-Hat SEO</h2>
-          <div class="mt-6 space-y-4 text-slate-400 leading-relaxed">
+      <div class="grid gap-16 lg:grid-cols-2">
+        <div>
+          <h2 class="text-xl font-semibold text-charcoal">Our story</h2>
+          <div class="mt-6 space-y-4 text-sm leading-relaxed text-slate-600">
             <p>
-              In 2018, our founders watched enterprise brands burn budgets on link farms and PBNs —
-              short-term gains followed by devastating penalties. Web Grouth was built on a different
-              premise: <strong class="text-white">authority should be earned, not bought</strong>.
+              Web Grouth began in 2018 when our founders saw enterprise brands spending heavily on
+              link schemes that delivered short-term gains and long-term risk. We built a different
+              model — editorial outreach, vetted publishers, and reporting that marketing teams can
+              actually use.
             </p>
             <p>
-              Today we're the link building partner of choice for SaaS companies, e-commerce brands,
-              and agencies who need scale without sacrificing quality. Our 500+ publisher network spans
-              finance, tech, health, and B2B — every domain vetted for traffic, relevance, and editorial integrity.
+              Today we work with SaaS companies, e-commerce brands, and agencies that need reliable
+              off-page execution. Our publisher network spans finance, technology, health, and B2B.
+              Every domain is reviewed for traffic, relevance, and editorial standards.
             </p>
             <p>
-              We don't just place links. We build relationships with publishers, craft editorial-quality
-              content, and integrate off-page SEO into your broader growth strategy.
+              We do not sell links in bulk. We build authority through relationships, strong content,
+              and disciplined process.
             </p>
           </div>
         </div>
 
-        <div class="reveal-right relative">
-          <div class="glass-card overflow-hidden p-2">
-            <div class="aspect-[4/3] overflow-hidden rounded-xl bg-gradient-to-br from-brand-900/50 to-surface-800">
-              <div class="flex h-full flex-col items-center justify-center p-8 text-center">
-                <p class="text-6xl font-extrabold text-gradient">2.4M+</p>
-                <p class="mt-2 text-lg font-semibold text-white">Links Placed Since 2018</p>
-                <p class="mt-4 max-w-xs text-sm text-slate-400">
-                  Zero Google penalties across our entire client portfolio.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div
-            class="absolute -bottom-4 -left-4 rounded-2xl border border-brand-500/30 bg-surface-900 px-5 py-3 shadow-xl"
-          >
-            <p class="text-2xl font-bold text-brand-400">94%</p>
-            <p class="text-xs text-slate-400">Client Retention Rate</p>
+        <div class="border border-slate-200 bg-soft p-10">
+          <p class="text-4xl font-semibold text-charcoal">2.4M+</p>
+          <p class="mt-2 text-sm font-medium text-charcoal">Links placed since 2018</p>
+          <p class="mt-4 text-sm leading-relaxed text-slate-600">
+            Zero manual penalties across our client portfolio. Results earned through editorial
+            standards, not shortcuts.
+          </p>
+          <div class="mt-8 border-t border-slate-200 pt-8">
+            <p class="text-2xl font-semibold text-charcoal">94%</p>
+            <p class="mt-1 text-sm text-slate-600">Annual client retention</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Timeline -->
-  <section class="border-y border-white/5 bg-surface-950 py-20">
+  <section class="border-y border-slate-200 bg-soft py-16">
     <div class="container-site">
-      <div class="reveal mb-12 text-center">
-        <span class="section-label">Timeline</span>
-        <h2 class="mt-4 text-3xl font-bold text-white">Our Journey</h2>
-      </div>
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <h2 class="text-xl font-semibold text-charcoal">Timeline</h2>
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {
-          milestones.map((m, i) => (
-            <div
-              class="reveal glass-card relative p-6 transition-all duration-500 hover:-translate-y-1"
-              style={`animation-delay: ${i * 100}ms`}
-            >
-              <span class="text-sm font-bold text-brand-400">{m.year}</span>
-              <h3 class="mt-2 text-lg font-bold text-white">{m.title}</h3>
-              <p class="mt-2 text-sm text-slate-400">{m.desc}</p>
+          milestones.map((m) => (
+            <div class="border border-slate-200 bg-white p-6">
+              <p class="text-xs font-medium text-slate-500">{m.year}</p>
+              <h3 class="mt-2 text-base font-medium text-charcoal">{m.title}</h3>
+              <p class="mt-2 text-sm text-slate-600">{m.desc}</p>
             </div>
           ))
         }
@@ -117,22 +103,15 @@ const team = [
     </div>
   </section>
 
-  <!-- Values -->
-  <section class="py-20">
+  <section class="py-16 lg:py-20">
     <div class="container-site">
-      <div class="reveal mb-12 text-center">
-        <span class="section-label">Values</span>
-        <h2 class="mt-4 text-3xl font-bold text-white">What We Stand For</h2>
-      </div>
-      <div class="grid gap-6 md:grid-cols-2">
+      <h2 class="text-xl font-semibold text-charcoal">Principles</h2>
+      <div class="mt-10 grid gap-6 md:grid-cols-2">
         {
-          values.map((v, i) => (
-            <div
-              class="reveal glass-card p-8 transition-all duration-500 hover:border-brand-500/30"
-              style={`animation-delay: ${i * 80}ms`}
-            >
-              <h3 class="text-lg font-bold text-white">{v.title}</h3>
-              <p class="mt-3 text-sm leading-relaxed text-slate-400">{v.desc}</p>
+          values.map((v) => (
+            <div class="border border-slate-200 p-8">
+              <h3 class="text-base font-medium text-charcoal">{v.title}</h3>
+              <p class="mt-3 text-sm leading-relaxed text-slate-600">{v.desc}</p>
             </div>
           ))
         }
@@ -140,38 +119,21 @@ const team = [
     </div>
   </section>
 
-  <!-- Team -->
-  <section class="border-t border-white/5 bg-surface-950 py-20">
+  <section class="border-t border-slate-200 bg-soft py-16">
     <div class="container-site">
-      <div class="reveal mb-12 text-center">
-        <span class="section-label">Leadership</span>
-        <h2 class="mt-4 text-3xl font-bold text-white">Meet the Team</h2>
-      </div>
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <h2 class="text-xl font-semibold text-charcoal">Leadership</h2>
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {
-          team.map((member, i) => (
-            <div
-              class="reveal glass-card group p-6 text-center transition-all duration-500 hover:-translate-y-2"
-              style={`animation-delay: ${i * 100}ms`}
-            >
-              <div
-                class="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-500/30 to-brand-800/30 text-2xl font-bold text-brand-300 transition-transform group-hover:scale-110"
-              >
-                {member.name
-                  .split(' ')
-                  .map((n) => n[0])
-                  .join('')}
-              </div>
-              <h3 class="font-bold text-white">{member.name}</h3>
-              <p class="mt-1 text-sm text-brand-400">{member.role}</p>
-              <p class="mt-2 text-xs text-slate-500">{member.focus}</p>
+          team.map((member) => (
+            <div class="border border-slate-200 bg-white p-6">
+              <p class="text-sm font-medium text-charcoal">{member.name}</p>
+              <p class="mt-1 text-sm text-slate-600">{member.role}</p>
             </div>
           ))
         }
       </div>
-
-      <div class="reveal mt-14 text-center">
-        <a href="/contact" class="btn-primary"> Work With Us </a>
+      <div class="mt-12">
+        <a href="/contact" class="btn-primary">Work with us</a>
       </div>
     </div>
   </section>

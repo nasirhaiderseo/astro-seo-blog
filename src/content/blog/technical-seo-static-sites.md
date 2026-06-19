@@ -1,10 +1,8 @@
 ---
 title: "Technical SEO Checklist for Link Building Campaigns"
-description: "A practical technical SEO checklist to ensure your site is ready to receive link equity — covering crawlability, indexation, Core Web Vitals, and structured data."
 pubDate: 2026-01-05
 updatedDate: 2026-02-01
 author: "David Park"
-image: "/blog-placeholder.svg"
 tags: ["Technical SEO", "Link Building", "Site Audit"]
 ---
 

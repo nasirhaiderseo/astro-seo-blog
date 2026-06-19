@@ -1,9 +1,7 @@
 ---
 title: "Guest Posting in 2026: The Complete White-Hat Link Building Playbook"
-description: "Everything you need to know about guest posting for SEO — from publisher vetting and outreach templates to anchor text strategy and ROI measurement."
 pubDate: 2026-04-15
 author: "Sarah Mitchell"
-image: "/blog-placeholder.svg"
 tags: ["Guest Posting", "Off-Page SEO", "Link Building"]
 ---
 

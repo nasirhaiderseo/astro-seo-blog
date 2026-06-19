@@ -1,88 +1,52 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import BlogCover from './BlogCover.astro';
+import { getPostMeta } from '../lib/blog';
 
 interface Props {
   post: CollectionEntry<'blog'>;
 }
 
 const { post } = Astro.props;
-const { title, description, pubDate, tags, image, author } = post.data;
+const { title, description, pubDate, tags, image, author } = getPostMeta(post);
 const formattedDate = pubDate.toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
 });
-const coverImage = image ?? '/blog-placeholder.svg';
 ---
 
-<section class="relative overflow-hidden border-b border-white/5 bg-surface-950">
-  <div class="absolute inset-0 bg-hero-glow"></div>
-  <div class="absolute inset-0 bg-grid opacity-30"></div>
+<section class="border-b border-slate-200 bg-soft py-16 lg:py-20">
+  <div class="container-site">
+    <p class="section-label">Latest Article</p>
 
-  <div class="container-site relative py-16 lg:py-24">
-    <div class="reveal mb-6">
-      <span class="section-label">
-        <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-brand-400"></span>
-        Featured Article
-      </span>
-    </div>
-
-    <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-      <div class="reveal-left order-2 lg:order-1">
-        <time datetime={pubDate.toISOString()} class="text-sm font-medium text-brand-400">
+    <div class="mt-10 grid items-start gap-12 lg:grid-cols-2">
+      <div>
+        <time datetime={pubDate.toISOString()} class="text-sm text-slate-500">
           {formattedDate}
         </time>
-        <h1
-          class="mt-4 text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl"
-        >
+        <h2 class="mt-3 text-2xl font-semibold leading-tight text-charcoal sm:text-3xl lg:text-4xl">
           {title}
-        </h1>
-        <p class="mt-5 max-w-xl text-lg leading-relaxed text-slate-400">{description}</p>
+        </h2>
+        <p class="mt-5 max-w-xl text-base leading-relaxed text-slate-600">{description}</p>
 
-        <div class="mt-6 flex flex-wrap items-center gap-4">
-          <span class="text-sm text-slate-500">By {author}</span>
+        <div class="mt-6 flex flex-wrap items-center gap-3 text-sm text-slate-500">
+          <span>By {author}</span>
           {
             tags.slice(0, 3).map((tag) => (
-              <span class="tag-pill">{tag}</span>
+              <span class="tag">{tag}</span>
             ))
           }
         </div>
 
-        <a
-          href={`/blog/${post.id}`}
-          class="btn-primary mt-8 inline-flex transition-transform duration-300 hover:scale-105"
-        >
-          Read Full Article
-          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"
-            ></path>
-          </svg>
+        <a href={`/blog/${post.id}`} class="btn-primary mt-8 inline-flex">
+          Read article
         </a>
       </div>
 
-      <div class="reveal-right order-1 lg:order-2">
-        <a
-          href={`/blog/${post.id}`}
-          class="group relative block overflow-hidden rounded-2xl border border-white/10 shadow-2xl shadow-brand-500/10 transition-all duration-500 hover:-translate-y-1 hover:shadow-brand-500/20"
-        >
-          <div class="aspect-[4/3] overflow-hidden bg-surface-800">
-            <img
-              src={coverImage}
-              alt=""
-              class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-          </div>
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-surface-900 via-surface-900/20 to-transparent opacity-60 transition-opacity group-hover:opacity-40"
-          >
-          </div>
-          <div
-            class="absolute bottom-0 left-0 right-0 p-6 transition-transform duration-500 group-hover:translate-y-[-4px]"
-          >
-            <span class="tag-pill">Latest Post</span>
-          </div>
-        </a>
-      </div>
+      <a href={`/blog/${post.id}`} class="block">
+        <BlogCover title={title} image={image} aspect="featured" />
+      </a>
     </div>
   </div>
 </section>

@@ -1,9 +1,7 @@
 ---
 title: "10 On-Page SEO Techniques That Still Work in 2026"
-description: "Discover proven on-page SEO strategies to improve rankings, click-through rates, and user experience — and maximize the impact of your backlink investments."
 pubDate: 2026-03-10
 author: "James Chen"
-image: "/blog-placeholder.svg"
 tags: ["On-Page SEO", "Technical SEO", "Content Strategy"]
 ---
 

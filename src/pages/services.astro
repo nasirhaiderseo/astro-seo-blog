@@ -8,125 +8,113 @@ const services = [
     id: 'technical-seo',
     title: 'Technical SEO',
     description:
-      'Foundation-first optimization that ensures search engines can crawl, index, and rank your content at scale. We fix the infrastructure so your link building compounds.',
+      'We resolve crawl, indexation, and performance issues so link equity flows to the right pages. Technical work is the foundation — not an afterthought.',
     icon: 'technical' as const,
     features: [
-      'Full site crawl & indexation audits',
-      'Core Web Vitals & page speed optimization',
-      'Schema markup & structured data implementation',
-      'XML sitemaps, robots.txt & canonical strategy',
-      'JavaScript rendering & SPA SEO fixes',
-      'International hreflang & multi-site architecture',
+      'Site crawl and indexation audits',
+      'Core Web Vitals and page speed',
+      'Schema and structured data',
+      'Sitemaps, robots.txt, canonicals',
+      'JavaScript rendering and SPA fixes',
+      'International and multi-site architecture',
     ],
   },
   {
     id: 'content-velocity',
     title: 'Content Velocity',
     description:
-      'High-intent content production at enterprise scale. Topic clusters, linkable assets, and outreach-ready publications designed to attract links naturally.',
+      'Editorial production at scale. Topic clusters, linkable assets, and publishing workflows designed to support outreach and earn links naturally.',
     icon: 'content' as const,
     features: [
-      'Keyword research & search intent mapping',
-      'Pillar page & topic cluster architecture',
-      'Linkable asset creation (studies, tools, guides)',
-      'Editorial calendar & production workflows',
-      'Content refresh & decay management',
-      'AI-assisted drafting with human editorial QA',
+      'Keyword research and intent mapping',
+      'Pillar pages and topic clusters',
+      'Linkable assets: studies, tools, guides',
+      'Editorial calendars and workflows',
+      'Content refresh and decay management',
+      'Human-edited production at volume',
     ],
   },
   {
     id: 'authority-building',
     title: 'Authority Building',
     description:
-      'Our flagship off-page SEO service. White-hat guest posting, digital PR, niche edits, and broken link building on DR 50+ domains with real editorial standards.',
+      'Our core off-page service. Guest posting, digital PR, niche edits, and broken link building on editorial domains with full transparency.',
     icon: 'authority' as const,
     features: [
-      'Guest posting on 500+ vetted publishers',
-      'Digital PR & journalist outreach campaigns',
-      'Niche edits & contextual link insertions',
+      'Guest posting on vetted publishers',
+      'Digital PR and journalist outreach',
+      'Niche edits and contextual links',
       'Competitor backlink gap analysis',
-      'Anchor text diversification strategy',
-      'Monthly DR, traffic & indexing reports',
+      'Anchor text diversification',
+      'Monthly DR, traffic, and index reports',
     ],
   },
   {
     id: 'on-page-metrics',
     title: 'On-Page Metrics',
     description:
-      'Precision on-page optimization aligned with off-page efforts. Title tags, internal linking, and content structure tuned to maximize the impact of every backlink.',
+      'On-page work aligned with off-page campaigns. Structure, internal linking, and page-level optimization so every link lands on a page built to rank.',
     icon: 'onpage' as const,
     features: [
-      'Title tag & meta description optimization',
-      'Heading hierarchy & semantic HTML audits',
-      'Internal linking architecture & PageRank flow',
-      'Image alt text & media optimization',
-      'E-E-A-T signals & author schema markup',
-      'Conversion rate optimization for landing pages',
+      'Title tags and meta descriptions',
+      'Heading hierarchy and semantic HTML',
+      'Internal linking architecture',
+      'Image and media optimization',
+      'E-E-A-T and author markup',
+      'Landing page conversion tuning',
     ],
   },
 ];
 
 const process = [
-  { step: '01', title: 'Discovery Audit', desc: 'Deep analysis of your backlink profile, competitors, and content gaps.' },
-  { step: '02', title: 'Strategy Blueprint', desc: 'Custom 90-day roadmap with KPIs, anchor text plan, and publisher targets.' },
-  { step: '03', title: 'Execution Sprint', desc: 'Outreach, content creation, placements, and technical fixes — shipped weekly.' },
-  { step: '04', title: 'Measure & Scale', desc: 'Rank tracking, DR monitoring, referral traffic analysis, and iteration.' },
+  { step: '01', title: 'Discovery', desc: 'Audit backlinks, competitors, and content gaps.' },
+  { step: '02', title: 'Strategy', desc: 'Build a 90-day roadmap with clear KPIs.' },
+  { step: '03', title: 'Execution', desc: 'Ship outreach, content, and technical fixes weekly.' },
+  { step: '04', title: 'Reporting', desc: 'Track rankings, DR, and referral traffic monthly.' },
 ];
 ---
 
 <BaseLayout
   title="Services"
-  description="Web Grouth offers Technical SEO, Content Velocity, Authority Building, and On-Page Metrics — enterprise-grade frameworks for compounding organic growth."
+  description="Technical SEO, Content Velocity, Authority Building, and On-Page Metrics — Web Grouth's integrated frameworks for organic growth."
 >
   <PageHero
     label="Services"
-    title="Four Frameworks. One Growth Engine."
-    description="Integrated SEO services designed for teams who need scale, transparency, and results — without cutting corners on quality."
+    title="Four frameworks, one disciplined process"
+    description="Each service is designed to work independently or as part of a full organic growth program."
   />
 
-  <section class="py-20">
+  <section class="py-16 lg:py-20">
     <div class="container-site">
-      <div class="grid gap-8 lg:grid-cols-2">
-        {services.map((service, i) => (
+      <div class="grid gap-6 lg:grid-cols-2">
+        {services.map((service) => (
           <ServiceCard
             id={service.id}
             title={service.title}
             description={service.description}
             icon={service.icon}
             features={service.features}
-            index={i}
           />
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Process -->
-  <section class="border-y border-white/5 bg-surface-950 py-20">
+  <section class="border-y border-slate-200 bg-soft py-16">
     <div class="container-site">
-      <div class="reveal mb-14 text-center">
-        <span class="section-label">Process</span>
-        <h2 class="mt-4 text-3xl font-bold text-white">How We Deliver Results</h2>
-        <p class="mx-auto mt-4 max-w-2xl text-slate-400">
-          A proven four-phase methodology used across 500+ enterprise engagements.
-        </p>
-      </div>
+      <h2 class="text-xl font-semibold text-charcoal">How we work</h2>
+      <p class="mt-3 max-w-2xl text-sm text-slate-600">
+        A consistent process across every engagement — clear milestones, honest reporting,
+        and measurable outcomes.
+      </p>
 
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {
-          process.map((p, i) => (
-            <div
-              class="reveal group relative p-6 transition-all duration-500 hover:-translate-y-1"
-              style={`animation-delay: ${i * 100}ms`}
-            >
-              <span class="text-4xl font-extrabold text-brand-500/20 transition-colors group-hover:text-brand-500/40">
-                {p.step}
-              </span>
-              <h3 class="mt-3 text-lg font-bold text-white">{p.title}</h3>
-              <p class="mt-2 text-sm leading-relaxed text-slate-400">{p.desc}</p>
-              {i < process.length - 1 && (
-                <div class="absolute right-0 top-1/2 hidden h-px w-8 -translate-y-1/2 bg-brand-500/20 lg:block" />
-              )}
+          process.map((p) => (
+            <div class="border border-slate-200 bg-white p-6">
+              <p class="text-xs font-medium text-slate-400">{p.step}</p>
+              <h3 class="mt-2 text-base font-medium text-charcoal">{p.title}</h3>
+              <p class="mt-2 text-sm text-slate-600">{p.desc}</p>
             </div>
           ))
         }
@@ -134,21 +122,17 @@ const process = [
     </div>
   </section>
 
-  <!-- Pricing teaser -->
-  <section class="py-20">
+  <section class="py-16">
     <div class="container-site">
-      <div
-        class="reveal mx-auto max-w-3xl rounded-3xl border border-brand-500/20 bg-gradient-to-br from-brand-950/30 to-surface-900 p-10 text-center lg:p-14"
-      >
-        <span class="section-label">Custom Pricing</span>
-        <h2 class="mt-4 text-3xl font-bold text-white">Plans Built for Your Growth Stage</h2>
-        <p class="mt-4 text-slate-400">
-          From startup sprint packages ($2,500/mo) to enterprise retainers with dedicated teams.
-          Every plan includes transparent reporting and a 90-day results guarantee.
+      <div class="border border-slate-200 bg-white p-10 text-center lg:p-14">
+        <h2 class="text-xl font-semibold text-charcoal">Custom pricing for your stage</h2>
+        <p class="mx-auto mt-4 max-w-lg text-sm text-slate-600">
+          From focused sprint packages to enterprise retainers with dedicated teams.
+          We scope every project individually.
         </p>
         <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a href="/contact" class="btn-primary"> Get a Custom Quote </a>
-          <a href="/blog" class="btn-secondary"> Read Case Studies </a>
+          <a href="/contact" class="btn-primary">Request a quote</a>
+          <a href="/blog" class="btn-secondary">Read our writing</a>
         </div>
       </div>
     </div>

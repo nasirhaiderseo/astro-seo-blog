@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { getPostMeta } from '../lib/blog';
 
 interface Props {
   posts: CollectionEntry<'blog'>[];
@@ -9,45 +10,35 @@ interface Props {
 
 const { posts, excludeId, limit = 4 } = Astro.props;
 
-const filtered = posts
-  .filter((p) => p.id !== excludeId)
-  .slice(0, limit);
+const filtered = posts.filter((p) => p.id !== excludeId).slice(0, limit);
 ---
 
-<div class="rounded-2xl border border-white/10 bg-white/[0.02] p-5">
-  <h3 class="mb-4 flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-white">
-    <svg class="h-4 w-4 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
-      ></path>
-    </svg>
-    Latest Articles
-  </h3>
+<div class="sidebar-block">
+  <h3 class="text-sm font-medium text-charcoal">Recent Articles</h3>
 
-  <ul class="space-y-4">
+  <ul class="mt-4 divide-y divide-slate-200">
     {
       filtered.map((post) => {
-        const cover = post.data.image ?? '/blog-placeholder.svg';
+        const { title, image } = getPostMeta(post);
         return (
-          <li>
-            <a
-              href={`/blog/${post.id}`}
-              class="group flex gap-3 rounded-xl p-2 transition-all duration-300 hover:bg-white/5"
-            >
-              <div class="h-16 w-16 shrink-0 overflow-hidden rounded-lg border border-white/10 bg-surface-800">
-                <img
-                  src={cover}
-                  alt=""
-                  class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  loading="lazy"
-                />
+          <li class="py-4 first:pt-0 last:pb-0">
+            <a href={`/blog/${post.id}`} class="group flex gap-3">
+              <div class="h-14 w-14 shrink-0 overflow-hidden border border-slate-200 bg-soft">
+                {
+                  image ? (
+                    <img src={image} alt="" class="h-full w-full object-cover" loading="lazy" />
+                  ) : (
+                    <div class="flex h-full items-center justify-center px-1">
+                      <span class="text-center text-[9px] font-medium leading-tight text-slate-400">
+                        {title.split(' ').slice(0, 3).join(' ')}
+                      </span>
+                    </div>
+                  )
+                }
               </div>
               <div class="min-w-0 flex-1">
-                <p class="line-clamp-2 text-sm font-medium text-white transition-colors group-hover:text-brand-300">
-                  {post.data.title}
+                <p class="line-clamp-2 text-sm font-medium text-charcoal group-hover:underline">
+                  {title}
                 </p>
                 <time class="mt-1 block text-xs text-slate-500">
                   {post.data.pubDate.toLocaleDateString('en-US', {
@@ -64,10 +55,7 @@ const filtered = posts
     }
   </ul>
 
-  <a
-    href="/blog"
-    class="mt-4 block text-center text-xs font-semibold uppercase tracking-wider text-brand-400 transition-colors hover:text-brand-300"
-  >
-    View All Posts →
+  <a href="/blog" class="mt-4 block text-sm text-slate-600 hover:text-charcoal">
+    View all articles
   </a>
 </div>

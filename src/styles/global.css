@@ -8,53 +8,49 @@
   }
 
   body {
-    @apply bg-surface-900 text-slate-300 antialiased;
+    @apply bg-white text-charcoal antialiased;
   }
 
   ::selection {
-    @apply bg-brand-500/30 text-white;
+    @apply bg-slate-200 text-charcoal;
   }
 }
 
 @layer components {
   .container-site {
-    @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-6xl px-6 lg:px-8;
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-brand-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-400 hover:shadow-brand-500/40 active:translate-y-0;
+    @apply inline-flex items-center justify-center gap-2 border border-charcoal bg-charcoal px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-slate-800;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-400/40 hover:bg-white/10 active:translate-y-0;
-  }
-
-  .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-brand-500/40 px-6 py-3 text-sm font-semibold text-brand-400 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-400 hover:bg-brand-500/10 active:translate-y-0;
-  }
-
-  .glass-card {
-    @apply rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md transition-all duration-500 hover:border-brand-500/30 hover:bg-white/[0.06];
+    @apply inline-flex items-center justify-center gap-2 border border-slate-200 bg-white px-6 py-3 text-sm font-medium text-charcoal transition-colors hover:border-slate-300 hover:bg-soft;
   }
 
   .section-label {
-    @apply mb-3 inline-flex items-center gap-2 rounded-full border border-brand-500/30 bg-brand-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-400;
+    @apply text-xs font-medium uppercase tracking-widest text-slate-500;
+  }
+
+  .card {
+    @apply border border-slate-200 bg-white;
   }
 
   .prose-blog {
-    @apply text-slate-300 leading-relaxed;
+    @apply text-base leading-[1.8] text-slate-700;
   }
 
   .prose-blog h2 {
-    @apply mb-4 mt-10 scroll-mt-28 text-2xl font-bold text-white;
+    @apply mb-4 mt-12 scroll-mt-24 text-xl font-semibold text-charcoal;
   }
 
   .prose-blog h3 {
-    @apply mb-3 mt-8 text-xl font-semibold text-white;
+    @apply mb-3 mt-8 text-lg font-semibold text-charcoal;
   }
 
   .prose-blog p {
-    @apply mb-5 text-base leading-8 text-slate-300;
+    @apply mb-6;
   }
 
   .prose-blog ul,
@@ -71,75 +67,42 @@
   }
 
   .prose-blog li {
-    @apply leading-7 text-slate-300;
+    @apply leading-7;
   }
 
   .prose-blog strong {
-    @apply font-semibold text-white;
+    @apply font-semibold text-charcoal;
   }
 
   .prose-blog a {
-    @apply text-brand-400 underline decoration-brand-500/40 underline-offset-4 transition-colors hover:text-brand-300;
+    @apply text-charcoal underline decoration-slate-300 underline-offset-4 hover:decoration-charcoal;
   }
 
   .prose-blog code {
-    @apply rounded-md border border-white/10 bg-surface-800 px-1.5 py-0.5 text-sm text-brand-300;
+    @apply border border-slate-200 bg-soft px-1.5 py-0.5 text-sm text-charcoal;
   }
 
   .prose-blog blockquote {
-    @apply my-6 border-l-4 border-brand-500 pl-5 italic text-slate-400;
+    @apply my-8 border-l-2 border-slate-300 pl-6 italic text-slate-600;
   }
 
   .prose-blog table {
-    @apply my-6 w-full border-collapse overflow-hidden rounded-xl border border-white/10 text-sm;
+    @apply my-8 w-full border-collapse border border-slate-200 text-sm;
   }
 
   .prose-blog th {
-    @apply border border-white/10 bg-surface-800 px-4 py-3 text-left font-semibold text-white;
+    @apply border border-slate-200 bg-soft px-4 py-3 text-left font-medium text-charcoal;
   }
 
   .prose-blog td {
-    @apply border border-white/10 px-4 py-3 text-slate-300;
+    @apply border border-slate-200 px-4 py-3 text-slate-700;
   }
 
-  .tag-pill {
-    @apply inline-flex rounded-full border border-brand-500/30 bg-brand-500/10 px-3 py-1 text-xs font-semibold text-brand-300;
+  .tag {
+    @apply inline-block border border-slate-200 px-2.5 py-0.5 text-xs text-slate-600;
   }
 
-  .reveal {
-    @apply opacity-0;
-  }
-
-  .reveal.is-visible {
-    @apply animate-fade-in-up;
-    opacity: 1;
-  }
-
-  .reveal-left.is-visible {
-    @apply animate-slide-in-left;
-    opacity: 1;
-  }
-
-  .reveal-right.is-visible {
-    @apply animate-slide-in-right;
-    opacity: 1;
-  }
-
-  .reveal-scale.is-visible {
-    @apply animate-scale-in;
-    opacity: 1;
-  }
-}
-
-@layer utilities {
-  .text-gradient {
-    @apply bg-gradient-to-r from-brand-300 via-emerald-200 to-teal-300 bg-clip-text text-transparent;
-  }
-
-  .bg-grid {
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: 48px 48px;
+  .sidebar-block {
+    @apply border border-slate-200 bg-white p-5;
   }
 }
