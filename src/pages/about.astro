@@ -3,36 +3,36 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 
 const milestones = [
-  { year: '2018', title: 'Founded', desc: 'Launched as a boutique outreach firm specializing in SaaS off-page growth.' },
-  { year: '2020', title: 'Publisher Network', desc: 'Expanded to 200+ strictly vetted editorial domains with real organic traffic.' },
-  { year: '2022', title: 'Full SEO Suite', desc: 'Introduced on-page metrics, content writing velocity, and technical audits.' },
-  { year: '2026', title: 'Global Authority', desc: 'Proudly served 500+ happy clients across 30+ countries worldwide.' },
+  { year: '2018', title: 'The Foundation', desc: 'Launched as a boutique outreach and high-performance link acquisition firm.' },
+  { year: '2020', title: 'Publisher Scaling', desc: 'Expanded our secure network to 500+ strictly vetted editorial domains.' },
+  { year: '2022', title: 'Full-Service SEO Integration', desc: 'Launched on-page frameworks, technical audits, and high-velocity content writing.' },
+  { year: '2026', title: 'Global SEO Authority', desc: 'Delivered measurable organic revenue growth to 500+ clients worldwide.' },
 ];
 
 const values = [
   {
-    title: 'Strict White-Hat SEO',
-    desc: 'No PBNs, no spam schemes. Every single placement meets strict editorial and search engine quality standards.',
+    title: 'Strict White-Hat Standards',
+    desc: 'No PBNs, no spam footprints. Every backlink is acquired through genuine, manual outreach and meets strict editorial standards.',
   },
   {
-    title: 'Absolute Transparency',
-    desc: 'Full transparent reporting on URL, anchor texts, real live traffic, and Google index status.',
+    title: 'Radical Transparency',
+    desc: 'Get full, unfiltered reports featuring direct URLs, live domain traffic metrics, and real-time indexing status.',
   },
   {
-    title: 'Revenue-Focused Outcomes',
-    desc: 'We track real rankings, organic traffic spikes, and business leads — not just empty backlink numbers.',
+    title: 'Revenue-First Outcomes',
+    desc: 'We do not chase empty backlink counts. We optimize for keyword rankings, organic traffic spikes, and sales pipeline growth.',
   },
   {
-    title: 'Enterprise Ready',
-    desc: 'NDAs, dedicated project managers, and optimized workflows built for high-scale marketing teams.',
+    title: 'Enterprise-Ready Operations',
+    desc: 'Backed by strict NDAs, dedicated SEO strategists, and scalable content pipelines ready for high-growth teams.',
   },
 ];
 
 const team = [
-  { name: 'David Park', role: 'CEO & Founder' },
-  { name: 'Sarah Mitchell', role: 'Head of Outreach' },
-  { name: 'James Chen', role: 'Director of SEO' },
-  { name: 'Elena Rodriguez', role: 'Content Director' },
+  { name: 'David Park', role: 'CEO & Founder', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80' },
+  { name: 'Sarah Mitchell', role: 'Head of Outreach', img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150&q=80' },
+  { name: 'James Chen', role: 'Director of SEO', img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&h=150&q=80' },
+  { name: 'Elena Rodriguez', role: 'Content Director', img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&h=150&q=80' },
 ];
 ---
 
@@ -41,58 +41,109 @@ const team = [
   description="Web Grouth is an enterprise-grade SEO and link building partner. Learn about our approach, team, and standards."
 >
   <PageHero
-    label="About Our Agency"
-    title="Built for teams that take SEO and Ranking seriously"
-    description="We are an authority-building partner. We help brands scale organic traffic with precise on-page, technical audits, content velocity, and high-quality guest posting."
+    label="Our Agency Profile"
+    title="Built for brands that take Organic Search seriously"
+    description="We are a performance-driven SEO and outreach partner. We combine on-page metrics, rigorous technical SEO, and manual off-page link acquisition to secure top positions on Google."
   />
 
-  <!-- ہماری کہانی (Our Story Section) — اینیمیٹڈ اسکرول -->
-  <section class="py-16 lg:py-20 reveal">
+  <!-- ہماری کہانی کا سیکشن + اینیمیٹڈ ویژول ڈیش بورڈ باکس -->
+  <section class="py-20 bg-white reveal">
     <div class="container-site">
-      <div class="grid gap-16 lg:grid-cols-2">
-        <div class="flex flex-col justify-center">
-          <span class="text-xs font-bold uppercase tracking-wider text-blue-600 mb-3">Our Journey</span>
-          <h2 class="text-3xl font-extrabold text-slate-950">Ranking businesses with clean SEO strategies</h2>
-          <div class="mt-6 space-y-4 text-sm leading-relaxed text-slate-500">
+      <div class="grid gap-12 lg:grid-cols-12 items-center">
+        
+        <!-- بایاں کالم: ٹیکسٹ کنٹینٹ (انگلش میں) -->
+        <div class="lg:col-span-6">
+          <span class="section-label mb-4">Our Core Mission</span>
+          <h2 class="text-3xl font-extrabold text-slate-950 sm:text-4xl">
+            We don't just build links. We rank <span class="text-blue-600">valuable businesses</span>.
+          </h2>
+          <div class="mt-6 space-y-5 text-sm leading-relaxed text-slate-500">
             <p>
-              ویب گروتھ (Web Grouth) کا آغاز 2018 میں اس وقت ہوا جب ہمارے بانیوں نے دیکھا کہ برانڈز ایسے لنک اسکیمز پر لاکھوں روپے ضائع کر رہے ہیں جو عارضی فائدہ اور مستقل نقصان دیتے ہیں۔ ہم نے ایک مختلف ماڈل بنایا — جہاں آن پیج (On-Page)، آف پیج (Off-Page)، ٹیکنیکل ایس ای او (Technical SEO) اور اعلیٰ درجے کے گیسٹ پوسٹس کو ملا کر سائٹس رینک کی جاتی ہیں۔
+              Web Grouth started in 2018 with a simple realization: enterprise brands were wasting massive budgets on risky, low-quality link schemes that triggered search engine penalties. We set out to build a clean, sustainable alternative.
             </p>
             <p>
-              آج ہم بلاگرز، ای کامرس برانڈز اور بڑی ایجنسیوں کے لیے گیسٹ پوسٹنگ اور اتھارٹی بلڈنگ کی خدمات فراہم کرتے ہیں۔ ہماری ماہر ٹیم اعلیٰ درجے کا ریسرچڈ کنٹینٹ لکھنے سے لے کر بڑے ہائی-ٹریفک بلاگز پر لنکس پلیس کرنے تک ہر کام خود سرانجام دیتی ہے۔
+              Today, we help high-growth SaaS, e-commerce, and enterprise companies dominate competitive search spaces. We do this by executing flawless on-page optimization, running deep technical indexation audits, and publishing top-tier contextual guest posts.
             </p>
             <p>
-              ہم صرف لنکس نہیں بیچتے، بلکہ ہم کاروبار کو رینک کرتے ہیں، آرگینک ٹریفک بڑھاتے ہیں اور آپ کے ریونیو کو اوپر لے جاتے ہیں۔ ہمارا پبلشر نیٹ ورک فنانس، ٹیک، ہیلتھ اور بزنس جیسے بڑے شعبوں پر محیط ہے۔
+              Our relationships span over 500+ highly vetted, high-authority publications. Every placement we deliver features real editorial standards, active organic traffic, and secure, natural anchor text distribution.
             </p>
           </div>
         </div>
 
-        <!-- دائیں طرف کا خوبصورت کاؤنٹر کارڈ -->
-        <div class="rounded-3xl border border-blue-100 bg-gradient-to-br from-blue-50/20 to-transparent p-10 shadow-lg shadow-blue-50">
-          <p class="text-5xl font-extrabold text-blue-600">2.4M+</p>
-          <p class="mt-2 text-sm font-bold text-slate-950">Links Placed & Ranked since 2018</p>
-          <p class="mt-4 text-sm leading-relaxed text-slate-500">
-            ہمارے کلائنٹس کے پورٹ فولیو پر کبھی کوئی ہینڈل پینلٹی (manual penalty) نہیں آئی۔ ہم نے ہر رینکنگ اور ہر لنک پبلشرز کے ساتھ دیرپا تعلقات اور معیاری کنٹینٹ کے ذریعے حاصل کیا ہے۔
-          </p>
-          <div class="mt-8 border-t border-slate-100 pt-8">
-            <p class="text-3xl font-extrabold text-slate-950">94%</p>
-            <p class="mt-1 text-xs font-semibold text-slate-400">Annual Client Retention Rate</p>
+        <!-- دایاں کالم: اینیمیٹڈ ویژول گرافکس باکس (امیج اور سافٹ ویئر گرافکس کی طرح) -->
+        <div class="lg:col-span-6 relative">
+          <!-- اینیمیٹڈ لائیو ڈیش بورڈ باکس -->
+          <div class="relative bg-slate-950 rounded-3xl p-6 border border-slate-900 shadow-2xl shadow-blue-900/10 overflow-hidden group">
+            <!-- بیک گراؤنڈ گلو -->
+            <div class="absolute -top-12 -right-12 w-40 h-40 bg-blue-600/20 rounded-full blur-3xl group-hover:bg-blue-600/30 transition-colors"></div>
+            
+            <!-- ہیڈر بار -->
+            <div class="flex items-center justify-between border-b border-slate-900 pb-4 mb-6">
+              <div class="flex items-center gap-1.5">
+                <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+                <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
+                <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
+              </div>
+              <span class="text-[10px] font-mono text-slate-500">organic_traffic_growth_live.json</span>
+            </div>
+
+            <!-- لائیو چڑھتا ہوا اینیمیٹڈ گراف -->
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <p class="text-xs font-semibold text-white">Monthly Organic Traffic</p>
+                <span class="text-xs font-bold text-emerald-400 flex items-center gap-1">
+                  <span class="animate-bounce">↑</span> +248%
+                </span>
+              </div>
+              
+              <div class="h-32 flex items-end gap-2.5 pt-4 border-b border-slate-900">
+                <div class="bg-blue-600/20 w-full rounded-t" style="height: 25%"></div>
+                <div class="bg-blue-600/30 w-full rounded-t" style="height: 40%"></div>
+                <div class="bg-blue-600/40 w-full rounded-t" style="height: 35%"></div>
+                <div class="bg-blue-600/60 w-full rounded-t" style="height: 55%"></div>
+                <div class="bg-blue-600/80 w-full rounded-t" style="height: 70%"></div>
+                <div class="bg-blue-600 w-full rounded-t animate-pulse" style="height: 95%"></div>
+              </div>
+
+              <!-- فلوٹنگ پوزیشن کارڈز (اینیمیٹڈ باکس) -->
+              <div class="grid grid-cols-2 gap-4 pt-4">
+                <div class="bg-slate-900/50 border border-slate-800 p-3 rounded-xl transition-all hover:border-blue-600">
+                  <p class="text-[10px] text-slate-400 font-medium">Core Keyword Position</p>
+                  <p class="text-base font-bold text-white mt-1">#1 Rank <span class="text-[10px] text-emerald-400 font-normal ml-1">Live</span></p>
+                </div>
+                <div class="bg-slate-900/50 border border-slate-800 p-3 rounded-xl transition-all hover:border-blue-600">
+                  <p class="text-[10px] text-slate-400 font-medium">Domain Authority (DR)</p>
+                  <p class="text-base font-bold text-white mt-1">DR 82 <span class="text-[10px] text-blue-400 font-normal ml-1">+14</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- فلوٹنگ بیج اینیمیشن -->
+          <div class="absolute -bottom-5 -left-5 bg-blue-600 text-white font-bold text-xs py-3 px-5 rounded-2xl shadow-xl animate-float">
+            🚀 Ranked 1,200+ Sites
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ٹائم لائن (Timeline Section) — اینیمیٹڈ اسکرول -->
-  <section class="border-y border-slate-100 bg-slate-50/40 py-16 reveal">
+  <!-- ٹائم لائن روڈ میپ (Timeline Section) — اینیمیٹڈ اسکرول -->
+  <section class="border-y border-slate-100 bg-slate-50/50 py-20 reveal">
     <div class="container-site">
-      <span class="section-label">Milestones</span>
-      <h2 class="mt-4 text-2xl font-extrabold text-slate-950">Our Timeline</h2>
-      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="text-center">
+        <span class="section-label">Milestones</span>
+        <h2 class="mt-4 text-3xl font-extrabold text-slate-950">Our Path To Quality</h2>
+        <p class="mx-auto mt-3 max-w-xl text-sm text-slate-500">How we evolved from a boutique outreach firm into an integrated search growth agency.</p>
+      </div>
+
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {
           milestones.map((m) => (
             <div class="card p-6 hover:shadow-lg transition-all duration-300">
-              <p class="text-xs font-bold text-blue-600">{m.year}</p>
-              <h3 class="mt-3 text-base font-bold text-slate-950">{m.title}</h3>
+              <span class="inline-block rounded bg-blue-50 px-2 py-0.5 text-xs font-bold text-blue-600">{m.year}</span>
+              <h3 class="mt-4 text-base font-bold text-slate-950">{m.title}</h3>
               <p class="mt-2 text-xs leading-relaxed text-slate-500">{m.desc}</p>
             </div>
           ))
@@ -101,17 +152,21 @@ const team = [
     </div>
   </section>
 
-  <!-- اصول اور اقدار (Principles Section) — اینیمیٹڈ اسکرول -->
-  <section class="py-16 lg:py-20 reveal">
+  <!-- ہمارے اصول (Principles Section) — اینیمیٹڈ اسکرول -->
+  <section class="py-20 bg-white reveal">
     <div class="container-site">
-      <span class="section-label">Our Standards</span>
-      <h2 class="mt-4 text-2xl font-extrabold text-slate-950">Core Principles</h2>
-      <div class="mt-10 grid gap-6 md:grid-cols-2">
+      <div class="text-center">
+        <span class="section-label">Our Principles</span>
+        <h2 class="mt-4 text-3xl font-extrabold text-slate-950">Strict Quality Guidelines</h2>
+        <p class="mx-auto mt-3 max-w-xl text-sm text-slate-500">We do not take shortcuts. We maintain rigorous controls over every asset and link we manage.</p>
+      </div>
+
+      <div class="mt-12 grid gap-6 md:grid-cols-2">
         {
           values.map((v) => (
-            <div class="card p-8 hover:border-blue-100 transition-colors duration-300">
-              <h3 class="text-base font-bold text-slate-950 flex items-center gap-2">
-                <span class="h-1.5 w-1.5 rounded-full bg-blue-600"></span>
+            <div class="card p-8 hover:border-blue-100 transition-colors duration-300 group">
+              <h3 class="text-base font-bold text-slate-950 flex items-center gap-3">
+                <span class="h-2 w-2 rounded-full bg-blue-600 group-hover:scale-125 transition-transform"></span>
                 {v.title}
               </h3>
               <p class="mt-3 text-sm leading-relaxed text-slate-500">{v.desc}</p>
@@ -122,22 +177,29 @@ const team = [
     </div>
   </section>
 
-  <!-- ٹیم اور لیڈرشپ (Team Section) — اینیمیٹڈ اسکرول -->
-  <section class="border-t border-slate-100 bg-slate-50/40 py-16 reveal">
+  <!-- ٹیم اور لیڈرشپ (Team Section + اصل چہروں والی تصاویر) — اینیمیٹڈ اسکرول -->
+  <section class="border-t border-slate-100 bg-slate-50/50 py-20 reveal">
     <div class="container-site">
-      <span class="section-label">Team Members</span>
-      <h2 class="mt-4 text-2xl font-extrabold text-slate-950">Leadership Team</h2>
-      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="text-center">
+        <span class="section-label">Team Members</span>
+        <h2 class="mt-4 text-3xl font-extrabold text-slate-950">Our Leadership Team</h2>
+        <p class="mx-auto mt-3 max-w-xl text-sm text-slate-500">Meet the professionals designing, optimizing, and scaling your off-page search engine authority.</p>
+      </div>
+
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {
           team.map((member) => (
-            <div class="card p-6 hover:scale-105 transition-transform duration-300">
+            <div class="card p-6 flex flex-col items-center text-center hover:scale-105 transition-transform duration-300">
+              <!-- گول تصویر (امیج ایلیمنٹ) -->
+              <img src={member.img} alt={member.name} class="h-20 w-20 rounded-full border-2 border-blue-50 object-cover shadow-md shadow-blue-100 mb-4" loading="lazy" />
               <p class="text-sm font-bold text-slate-950">{member.name}</p>
-              <p class="mt-1 text-xs font-medium text-blue-600">{member.role}</p>
+              <p class="mt-1 text-xs font-semibold text-blue-600">{member.role}</p>
             </div>
           ))
         }
       </div>
-      <div class="mt-12">
+      
+      <div class="mt-16 text-center">
         <a href="/contact" class="btn-primary">Work with us</a>
       </div>
     </div>
@@ -145,6 +207,20 @@ const team = [
 </BaseLayout>
 
 <style>
+  /* ہیرو مائیکرو اینیمیشن */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
   /* اسکرول ریویل (Scroll Reveal) کی بنیادی حالت */
   .reveal {
     opacity: 0;
