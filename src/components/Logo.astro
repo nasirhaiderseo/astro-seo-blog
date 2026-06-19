@@ -1,3 +1,4 @@
+--- START OF FILE astro-seo-blog-main/src/components/Logo.astro ---
 ---
 interface Props {
   class?: string;
@@ -8,16 +9,16 @@ const { class: className = '' } = Astro.props;
 
 <a
   href="/"
-  class:list={['inline-flex items-center gap-3', className]}
+  class:list={['inline-flex items-center gap-2.5 group', className]}
   aria-label="Web Grouth — Home"
 >
   <span
-    class="flex h-9 w-9 shrink-0 items-center justify-center border border-charcoal text-sm font-semibold text-charcoal"
+    class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-600 text-sm font-bold text-white shadow-sm shadow-blue-200 transition-transform group-hover:scale-105"
   >
     WG
   </span>
-  <span class="flex flex-col leading-tight">
-    <span class="text-base font-semibold tracking-tight text-charcoal">Web Grouth</span>
-    <span class="text-[11px] text-slate-500">SEO & Link Building</span>
+  <span class="flex flex-col leading-none">
+    <span class="text-base font-bold tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">Web Grouth</span>
+    <span class="text-[10px] font-semibold uppercase tracking-wider text-slate-400 mt-0.5">SEO Partner</span>
   </span>
 </a>
