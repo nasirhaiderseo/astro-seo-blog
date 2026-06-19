@@ -3,7 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import BlogCard from '../components/BlogCard.astro';
 import { getCollection } from 'astro:content';
 
-// بلاگز لوڈ کرنے کا ضروری سٹرکچر (جسے ہم نے تبدیل نہیں کیا)
 const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
@@ -12,47 +11,48 @@ const latestPosts = posts.slice(0, 3);
 ---
 
 <BaseLayout
-  title="Web Grouth"
+  title="Web Grouth — SEO & Link Building Partner"
   description="Web Grouth is a premium SEO and link building agency. Enterprise-grade off-page SEO, guest posting, and authority building."
 >
-  <!-- ہیرو سیکشن (Hero Section) -->
+  <!-- ہیرو سیکشن (Hero Section) — دھیمی اینیمیشن کے ساتھ -->
   <section class="relative overflow-hidden bg-white py-20 lg:py-28">
-    <div class="container-site relative z-10 text-center">
-      <!-- پِل بیج (Pill Badge) -->
-      <span class="section-label mb-6">
-        <span class="mr-1.5 h-1.5 w-1.5 rounded-full bg-blue-600 animate-pulse inline-block"></span>
-        Trusted by 5,000+ Agencies Worldwide
+    <div class="container-site relative z-10 text-center animate-fade-in">
+      <!-- پِل بیج (فلوٹنگ اینیمیشن کے ساتھ) -->
+      <span class="section-label mb-6 inline-flex items-center gap-1.5 animate-float shadow-sm shadow-blue-100">
+        <span class="h-1.5 w-1.5 rounded-full bg-blue-600 animate-ping"></span>
+        Trusted by 5,000+ Happy Clients Worldwide
       </span>
 
       <!-- مین ہیڈنگ -->
       <h1 class="mx-auto mt-4 max-w-4xl text-4xl font-extrabold leading-tight tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
         Scale Your Brand With <br/>
-        <span class="bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">SEO Success</span>
+        <span class="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent drop-shadow-sm">SEO Success</span>
       </h1>
 
-      <!-- سب ٹیکسٹ / ڈسکرپشن -->
+      <!-- ڈسکرپشن -->
       <p class="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-500 sm:text-lg">
-        The global marketplace for premium backlinks, guest posts, and SEO authority — built for agencies that demand real, measurable results.
+        The global marketplace for premium backlinks, guest posts, and SEO authority — built for brands and agencies that demand real, measurable results.
       </p>
 
-      <!-- ایکشن بٹنز (CTAs) -->
+      <!-- ایکشن بٹنز (واٹس ایپ اور ای میل کے ساتھ) -->
       <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-        <a href="/contact" class="btn-primary w-full sm:w-auto">
+        <a href="/contact" class="btn-primary w-full sm:w-auto animate-pulse-glow">
           <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-          Browse Marketplace
+          Start a project
         </a>
-        <a href="https://wa.me/yournumber" class="btn-secondary w-full sm:w-auto">
+        <!-- آپ کا اصل واٹس ایپ نمبر لنک کر دیا گیا ہے -->
+        <a href="https://wa.me/923327810261?text=Hi%20Web%20Grouth,%20I%20want%20to%20discuss%20an%20SEO%20project." target="_blank" rel="noopener noreferrer" class="btn-secondary w-full sm:w-auto hover:scale-105 active:scale-95">
           <svg class="h-4 w-4 fill-current text-green-500" viewBox="0 0 24 24"><path d="M12.004 2C6.51 2 2.014 6.5 2 12a9.99 9.99 0 0 0 1.457 5.18l-1.39 5.084 5.21-1.368c1.42.775 3.02 1.185 4.717 1.185 5.51 0 10.002-4.5 10.012-10S17.5 2 12.004 2zm5.72 13.047c-.244.688-1.201 1.25-1.649 1.302-.438.051-.85.253-2.785-.515-2.478-.98-4.072-3.5-4.195-3.664-.123-.163-.997-1.327-.997-2.53 0-1.204.628-1.796.852-2.038.223-.242.487-.302.65-.302.162 0 .324.004.466.01.147.007.345-.056.54.417.198.483.682 1.66.743 1.782.06.12.1.263.02.423-.08.16-.12.26-.24.4-.12.14-.253.313-.362.42-.12.118-.246.248-.106.49.14.24.62 1.024 1.332 1.657.915.815 1.685 1.068 1.924 1.188.24.12.378.1.52-.063.14-.163.606-.704.767-.945.162-.24.325-.2.548-.118.223.081 1.416.667 1.66.788.243.12.405.18.466.282.06.1.06.58-.184 1.27z"/></svg>
-          Talk To Expert
+          WhatsApp Chat
         </a>
       </div>
 
-      <!-- ٹرسٹ چیک مارکس (Trust Checks) -->
-      <div class="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-semibold text-slate-500">
-        <span class="flex items-center gap-1.5"><span class="text-green-500">✓</span> Permanent Links</span>
-        <span class="flex items-center gap-1.5"><span class="text-green-500">✓</span> Real DR Verified</span>
-        <span class="flex items-center gap-1.5"><span class="text-green-500">✓</span> Manual Outreach</span>
-        <span class="flex items-center gap-1.5"><span class="text-green-500">✓</span> 98% Success Rate</span>
+      <!-- ٹرسٹ چیک مارکس -->
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-semibold text-slate-400">
+        <span class="flex items-center gap-1.5"><span class="text-blue-500 font-bold">✓</span> Permanent Links</span>
+        <span class="flex items-center gap-1.5"><span class="text-blue-500 font-bold">✓</span> Real DR Verified</span>
+        <span class="flex items-center gap-1.5"><span class="text-blue-500 font-bold">✓</span> Manual Outreach</span>
+        <span class="flex items-center gap-1.5"><span class="text-blue-500 font-bold">✓</span> 98% Success Rate</span>
       </div>
     </div>
   </section>
@@ -61,21 +61,20 @@ const latestPosts = posts.slice(0, 3);
   <section class="border-y border-slate-100 bg-slate-50/50 py-6 overflow-hidden">
     <div class="container-site">
       <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-xs font-bold uppercase tracking-wider text-slate-400">
-        <span class="flex items-center gap-2">Forbes.com <span class="rounded bg-emerald-50 px-1.5 py-0.5 text-[9px] text-emerald-600 font-semibold">DR 95</span></span>
-        <span class="flex items-center gap-2">TechCrunch.com <span class="rounded bg-emerald-50 px-1.5 py-0.5 text-[9px] text-emerald-600 font-semibold">DR 94</span></span>
-        <span class="flex items-center gap-2">BusinessInsider.com <span class="rounded bg-emerald-50 px-1.5 py-0.5 text-[9px] text-emerald-600 font-semibold">DR 92</span></span>
-        <span class="flex items-center gap-2">Entrepreneur.com <span class="rounded bg-emerald-50 px-1.5 py-0.5 text-[9px] text-emerald-600 font-semibold">DR 90</span></span>
+        <span class="flex items-center gap-2 transition-colors hover:text-blue-600 cursor-default">Forbes.com <span class="rounded bg-emerald-50 px-1.5 py-0.5 text-[9px] text-emerald-600 font-semibold">DR 95</span></span>
+        <span class="flex items-center gap-2 transition-colors hover:text-blue-600 cursor-default">TechCrunch.com <span class="rounded bg-emerald-50 px-1.5 py-0.5 text-[9px] text-emerald-600 font-semibold">DR 94</span></span>
+        <span class="flex items-center gap-2 transition-colors hover:text-blue-600 cursor-default">BusinessInsider.com <span class="rounded bg-emerald-50 px-1.5 py-0.5 text-[9px] text-emerald-600 font-semibold">DR 92</span></span>
+        <span class="flex items-center gap-2 transition-colors hover:text-blue-600 cursor-default">Entrepreneur.com <span class="rounded bg-emerald-50 px-1.5 py-0.5 text-[9px] text-emerald-600 font-semibold">DR 90</span></span>
       </div>
     </div>
   </section>
 
-  <!-- کاؤنٹرز (Dark Stats Section) -->
-  <section class="py-16">
+  <!-- کاؤنٹرز (Dark Stats Section) — اینیمیٹڈ اسکرول ایفیکٹ -->
+  <section class="py-16 reveal">
     <div class="container-site">
-      <!-- گہرا نیلا کارڈ باکس -->
-      <div class="rounded-3xl bg-slate-950 p-10 shadow-2xl shadow-blue-900/10">
+      <div class="rounded-3xl bg-slate-950 p-10 shadow-2xl shadow-blue-900/10 border border-slate-900">
         <div class="grid grid-cols-2 gap-y-10 gap-x-4 md:grid-cols-4 md:gap-y-0 text-center">
-          <div>
+          <div class="transition-transform hover:scale-105 duration-300">
             <div class="mx-auto flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600/10 text-blue-400">
               <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
             </div>
@@ -83,15 +82,16 @@ const latestPosts = posts.slice(0, 3);
             <p class="mt-1 text-xs font-medium text-slate-400">Links Delivered</p>
           </div>
 
-          <div>
+          <!-- ہیپی کلائنٹس سیکشن -->
+          <div class="transition-transform hover:scale-105 duration-300">
             <div class="mx-auto flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600/10 text-blue-400">
               <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </div>
             <p class="mt-4 text-3xl font-extrabold text-white">5,000+</p>
-            <p class="mt-1 text-xs font-medium text-slate-400">Active Agencies</p>
+            <p class="mt-1 text-xs font-medium text-slate-400">Happy Clients</p>
           </div>
 
-          <div>
+          <div class="transition-transform hover:scale-105 duration-300">
             <div class="mx-auto flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600/10 text-blue-400">
               <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
             </div>
@@ -99,7 +99,7 @@ const latestPosts = posts.slice(0, 3);
             <p class="mt-1 text-xs font-medium text-slate-400">Success Rate</p>
           </div>
 
-          <div>
+          <div class="transition-transform hover:scale-105 duration-300">
             <div class="mx-auto flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600/10 text-blue-400">
               <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
             </div>
@@ -111,8 +111,8 @@ const latestPosts = posts.slice(0, 3);
     </div>
   </section>
 
-  <!-- سروسز اور صلاحیتیں (Services / Core Capabilities) -->
-  <section class="py-16 bg-slate-50/50 border-y border-slate-100">
+  <!-- سروسز اور صلاحیتیں (Services) — اینیمیٹڈ اسکرول ایفیکٹ -->
+  <section class="py-16 bg-slate-50/50 border-y border-slate-100 reveal">
     <div class="container-site">
       <div class="text-center">
         <span class="section-label">Core Capabilities</span>
@@ -136,7 +136,7 @@ const latestPosts = posts.slice(0, 3);
               desc: 'Crawl optimization, schema markup audits, and core web vitals fixes so equity distributes evenly.',
             },
           ].map((item) => (
-            <div class="card p-8 group">
+            <div class="card p-8 group hover:shadow-xl transition-all duration-300">
               <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
                 <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
               </div>
@@ -149,8 +149,8 @@ const latestPosts = posts.slice(0, 3);
     </div>
   </section>
 
-  <!-- قیمتوں کا ٹیبل (Pricing Section - جیسا کہ سکرین شاٹ میں ہے) -->
-  <section class="py-20 bg-white">
+  <!-- قیمتوں کا ٹیبل (Pricing Section) — اینیمیٹڈ اسکرول ایفیکٹ -->
+  <section class="py-20 bg-white reveal">
     <div class="container-site">
       <div class="text-center">
         <span class="section-label">Pricing Plans</span>
@@ -158,11 +158,10 @@ const latestPosts = posts.slice(0, 3);
         <p class="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-slate-500">No hidden fees. No PBN footprints. Just premium links that move rankings.</p>
       </div>
 
-      <!-- کارڈز کا گرڈ -->
       <div class="mt-14 grid gap-8 md:grid-cols-3 items-stretch">
         
         <!-- اسٹارٹر پلان -->
-        <div class="card p-8 flex flex-col justify-between">
+        <div class="card p-8 flex flex-col justify-between hover:shadow-lg transition-all duration-300">
           <div>
             <p class="text-xs font-bold uppercase tracking-wider text-slate-400">Starter</p>
             <div class="mt-4 flex items-baseline">
@@ -179,8 +178,8 @@ const latestPosts = posts.slice(0, 3);
         </div>
 
         <!-- اسٹینڈرڈ پلان (Most Popular) -->
-        <div class="card p-8 border-blue-200 shadow-md relative flex flex-col justify-between">
-          <span class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-blue-600 px-3.5 py-1 text-[9px] font-bold uppercase tracking-wider text-white shadow-sm">⭐ Most Popular</span>
+        <div class="card p-8 border-blue-200 shadow-md relative flex flex-col justify-between hover:shadow-xl transition-all duration-300 scale-102">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-blue-600 px-3.5 py-1 text-[9px] font-bold uppercase tracking-wider text-white shadow-sm animate-pulse">⭐ Most Popular</span>
           <div>
             <p class="text-xs font-bold uppercase tracking-wider text-blue-600 mt-2">Standard</p>
             <div class="mt-4 flex items-baseline">
@@ -194,11 +193,11 @@ const latestPosts = posts.slice(0, 3);
               <li class="flex items-center gap-2.5"><span class="text-emerald-500 font-bold">✓</span> 24/7 Dedicated Support</li>
             </ul>
           </div>
-          <a href="/contact" class="btn-primary w-full text-center mt-8 py-2.5">Buy Standard</a>
+          <a href="/contact" class="btn-primary w-full text-center mt-8 py-2.5 shadow-lg shadow-blue-200">Buy Standard</a>
         </div>
 
         <!-- انٹرپرائز پلان -->
-        <div class="card p-8 flex flex-col justify-between">
+        <div class="card p-8 flex flex-col justify-between hover:shadow-lg transition-all duration-300">
           <div>
             <p class="text-xs font-bold uppercase tracking-wider text-slate-400">Enterprise</p>
             <div class="mt-4 flex items-baseline">
@@ -219,8 +218,8 @@ const latestPosts = posts.slice(0, 3);
     </div>
   </section>
 
-  <!-- بلاگ آرٹیکلز کا سیکشن (Blog Section) -->
-  <section class="py-20 bg-slate-50/30 border-t border-slate-100">
+  <!-- بلاگ سیکشن — اینیمیٹڈ اسکرول ایفیکٹ -->
+  <section class="py-20 bg-slate-50/30 border-t border-slate-100 reveal">
     <div class="container-site">
       <div class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
         <div>
@@ -236,14 +235,92 @@ const latestPosts = posts.slice(0, 3);
     </div>
   </section>
 
-  <!-- کنورژن بینر (Footer Call to Action Banner) -->
-  <section class="border-t border-slate-100 bg-white py-16">
-    <div class="container-site flex flex-col items-start justify-between gap-6 rounded-3xl bg-slate-50 border border-slate-100 p-10 sm:flex-row sm:items-center">
+  <!-- کنورژن بینر (Footer CTA Banner) — اینیمیٹڈ اسکرول ایفیکٹ -->
+  <section class="border-t border-slate-100 bg-white py-16 reveal">
+    <div class="container-site flex flex-col items-start justify-between gap-6 rounded-3xl bg-slate-50 border border-slate-100 p-10 sm:flex-row sm:items-center hover:shadow-xl transition-shadow duration-300">
       <div>
         <h2 class="text-xl font-bold text-slate-950">Discuss your SEO roadmap</h2>
-        <p class="mt-2 text-sm text-slate-500">A straightforward conversation. No pitch decks required.</p>
+        <p class="mt-2 text-sm text-slate-500">A straightforward conversation. No pitch decks required. Contact us at hello@webgrouth.com</p>
       </div>
       <a href="/contact" class="btn-primary shrink-0 w-full sm:w-auto">Get in touch</a>
     </div>
   </section>
 </BaseLayout>
+
+<!-- مائیکرو اینیمیشنز اور اسکرول ایفیکٹ کی لاجک (CSS + JS) -->
+<style>
+  /* ہیرو فیڈ ان اینیمیشن */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  /* پِل بیج فلوٹنگ اینیمیشن */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-4px);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* بٹن پر چمکتی ہوئی پلس اینیمیشن */
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 15px 4px rgba(37, 99, 235, 0.2);
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulseGlow 2s infinite;
+  }
+
+  /* اسکرول ریویل (Scroll Reveal) کی بنیادی حالت */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  /* جب اسکرول کر کے ایلیمنٹ ظاہر ہو */
+  .reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  // اسکرول ریویل لاجک
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, {
+    threshold: 0.15 // جب ایلیمنٹ 15% اسکرین پر آئے تب اینیمیشن چلے
+  });
+
+  // تمام ریویل ایلیمنٹس کو آبزرو کرنا
+  document.querySelectorAll('.reveal').forEach((el) => {
+    observer.observe(el);
+  });
+</script>
