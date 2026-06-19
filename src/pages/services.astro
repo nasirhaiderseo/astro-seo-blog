@@ -1,55 +1,132 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import ServiceCard from '../components/ServiceCard.astro';
 
 const services = [
   {
-    title: 'SEO Audits',
+    id: 'technical-seo',
+    title: 'Technical SEO',
     description:
-      'Comprehensive technical and on-page audits that identify quick wins and long-term opportunities for organic growth.',
-    features: ['Technical crawl analysis', 'On-page optimization review', 'Competitor benchmarking', 'Prioritized action plan'],
+      'Foundation-first optimization that ensures search engines can crawl, index, and rank your content at scale. We fix the infrastructure so your link building compounds.',
+    icon: 'technical' as const,
+    features: [
+      'Full site crawl & indexation audits',
+      'Core Web Vitals & page speed optimization',
+      'Schema markup & structured data implementation',
+      'XML sitemaps, robots.txt & canonical strategy',
+      'JavaScript rendering & SPA SEO fixes',
+      'International hreflang & multi-site architecture',
+    ],
   },
   {
-    title: 'Content Strategy',
+    id: 'content-velocity',
+    title: 'Content Velocity',
     description:
-      'Data-driven content roadmaps aligned with search intent, business goals, and your audience\'s needs.',
-    features: ['Keyword research & clustering', 'Editorial calendar planning', 'Content gap analysis', 'Pillar page architecture'],
+      'High-intent content production at enterprise scale. Topic clusters, linkable assets, and outreach-ready publications designed to attract links naturally.',
+    icon: 'content' as const,
+    features: [
+      'Keyword research & search intent mapping',
+      'Pillar page & topic cluster architecture',
+      'Linkable asset creation (studies, tools, guides)',
+      'Editorial calendar & production workflows',
+      'Content refresh & decay management',
+      'AI-assisted drafting with human editorial QA',
+    ],
   },
   {
-    title: 'Site Development',
+    id: 'authority-building',
+    title: 'Authority Building',
     description:
-      'High-performance websites built with Astro and modern static site tools—fast, accessible, and SEO-ready from day one.',
-    features: ['Astro & Jamstack builds', 'Core Web Vitals optimization', 'Structured data implementation', 'Sitemap & robots.txt setup'],
+      'Our flagship off-page SEO service. White-hat guest posting, digital PR, niche edits, and broken link building on DR 50+ domains with real editorial standards.',
+    icon: 'authority' as const,
+    features: [
+      'Guest posting on 500+ vetted publishers',
+      'Digital PR & journalist outreach campaigns',
+      'Niche edits & contextual link insertions',
+      'Competitor backlink gap analysis',
+      'Anchor text diversification strategy',
+      'Monthly DR, traffic & indexing reports',
+    ],
   },
+  {
+    id: 'on-page-metrics',
+    title: 'On-Page Metrics',
+    description:
+      'Precision on-page optimization aligned with off-page efforts. Title tags, internal linking, and content structure tuned to maximize the impact of every backlink.',
+    icon: 'onpage' as const,
+    features: [
+      'Title tag & meta description optimization',
+      'Heading hierarchy & semantic HTML audits',
+      'Internal linking architecture & PageRank flow',
+      'Image alt text & media optimization',
+      'E-E-A-T signals & author schema markup',
+      'Conversion rate optimization for landing pages',
+    ],
+  },
+];
+
+const process = [
+  { step: '01', title: 'Discovery Audit', desc: 'Deep analysis of your backlink profile, competitors, and content gaps.' },
+  { step: '02', title: 'Strategy Blueprint', desc: 'Custom 90-day roadmap with KPIs, anchor text plan, and publisher targets.' },
+  { step: '03', title: 'Execution Sprint', desc: 'Outreach, content creation, placements, and technical fixes — shipped weekly.' },
+  { step: '04', title: 'Measure & Scale', desc: 'Rank tracking, DR monitoring, referral traffic analysis, and iteration.' },
 ];
 ---
 
 <BaseLayout
   title="Services"
-  description="Professional SEO audits, content strategy, and high-performance website development services to grow your organic traffic."
+  description="Web Grouth offers Technical SEO, Content Velocity, Authority Building, and On-Page Metrics — enterprise-grade frameworks for compounding organic growth."
 >
-  <section class="page-hero">
-    <div class="container">
-      <h1>Our Services</h1>
-      <p class="page-hero__lead">
-        End-to-end SEO and web development services designed to help you rank higher,
-        attract qualified traffic, and convert visitors into customers.
-      </p>
+  <PageHero
+    label="Services"
+    title="Four Frameworks. One Growth Engine."
+    description="Integrated SEO services designed for teams who need scale, transparency, and results — without cutting corners on quality."
+  />
+
+  <section class="py-20">
+    <div class="container-site">
+      <div class="grid gap-8 lg:grid-cols-2">
+        {services.map((service, i) => (
+          <ServiceCard
+            id={service.id}
+            title={service.title}
+            description={service.description}
+            icon={service.icon}
+            features={service.features}
+            index={i}
+          />
+        ))}
+      </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="grid grid--services">
+  <!-- Process -->
+  <section class="border-y border-white/5 bg-surface-950 py-20">
+    <div class="container-site">
+      <div class="reveal mb-14 text-center">
+        <span class="section-label">Process</span>
+        <h2 class="mt-4 text-3xl font-bold text-white">How We Deliver Results</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-slate-400">
+          A proven four-phase methodology used across 500+ enterprise engagements.
+        </p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {
-          services.map((service) => (
-            <div class="service-card">
-              <h2>{service.title}</h2>
-              <p>{service.description}</p>
-              <ul class="service-card__features">
-                {service.features.map((feature) => (
-                  <li>{feature}</li>
-                ))}
-              </ul>
+          process.map((p, i) => (
+            <div
+              class="reveal group relative p-6 transition-all duration-500 hover:-translate-y-1"
+              style={`animation-delay: ${i * 100}ms`}
+            >
+              <span class="text-4xl font-extrabold text-brand-500/20 transition-colors group-hover:text-brand-500/40">
+                {p.step}
+              </span>
+              <h3 class="mt-3 text-lg font-bold text-white">{p.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-400">{p.desc}</p>
+              {i < process.length - 1 && (
+                <div class="absolute right-0 top-1/2 hidden h-px w-8 -translate-y-1/2 bg-brand-500/20 lg:block" />
+              )}
             </div>
           ))
         }
@@ -57,24 +134,22 @@ const services = [
     </div>
   </section>
 
-  <section class="section section--alt">
-    <div class="container container--narrow">
-      <div class="prose prose--center">
-        <h2>How We Work</h2>
-        <p>
-          Every engagement starts with understanding your business, audience, and goals.
-          We then deliver a tailored plan with clear milestones, transparent reporting,
-          and measurable outcomes.
+  <!-- Pricing teaser -->
+  <section class="py-20">
+    <div class="container-site">
+      <div
+        class="reveal mx-auto max-w-3xl rounded-3xl border border-brand-500/20 bg-gradient-to-br from-brand-950/30 to-surface-900 p-10 text-center lg:p-14"
+      >
+        <span class="section-label">Custom Pricing</span>
+        <h2 class="mt-4 text-3xl font-bold text-white">Plans Built for Your Growth Stage</h2>
+        <p class="mt-4 text-slate-400">
+          From startup sprint packages ($2,500/mo) to enterprise retainers with dedicated teams.
+          Every plan includes transparent reporting and a 90-day results guarantee.
         </p>
-        <ol>
-          <li><strong>Discovery</strong> — Audit your current site, competitors, and market position.</li>
-          <li><strong>Strategy</strong> — Build a prioritized roadmap with timelines and KPIs.</li>
-          <li><strong>Execution</strong> — Implement optimizations, create content, and ship improvements.</li>
-          <li><strong>Reporting</strong> — Track rankings, traffic, and conversions with monthly reviews.</li>
-        </ol>
-        <p>
-          <a href="/contact" class="btn btn--primary">Request a Consultation</a>
-        </p>
+        <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a href="/contact" class="btn-primary"> Get a Custom Quote </a>
+          <a href="/blog" class="btn-secondary"> Read Case Studies </a>
+        </div>
       </div>
     </div>
   </section>

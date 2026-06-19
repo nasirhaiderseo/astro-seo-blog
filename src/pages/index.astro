@@ -3,75 +3,189 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import BlogCard from '../components/BlogCard.astro';
 import { getCollection } from 'astro:content';
 
-const posts = (await getCollection('blog', ({ data }) => !data.draft))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const latestPosts = posts.slice(0, 3);
+
+const pillars = [
+  {
+    title: 'Technical SEO',
+    desc: 'Crawl budget optimization, Core Web Vitals, schema markup, and indexation fixes that unlock growth.',
+    icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
+  },
+  {
+    title: 'Authority Building',
+    desc: 'White-hat guest posting, digital PR, and niche edits on DR 50+ domains with editorial standards.',
+    icon: 'M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1',
+  },
+  {
+    title: 'Content Velocity',
+    desc: 'High-intent content at scale — topic clusters, linkable assets, and outreach-ready publications.',
+    icon: 'M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z',
+  },
+];
+
+const logos = ['TechFlow', 'ScaleUp', 'CommerceHub', 'DataPulse', 'GrowthLab'];
 ---
 
 <BaseLayout
-  title="Astro SEO Blog"
-  description="Expert insights on SEO, content strategy, and building high-performance websites with modern tools like Astro."
+  title="Web Grouth"
+  description="Web Grouth is a premium SEO and link building agency. Enterprise-grade off-page SEO, guest posting, and authority building that compounds organic growth."
 >
-  <section class="hero">
-    <div class="container">
-      <p class="hero__eyebrow">SEO · Content · Web Performance</p>
-      <h1 class="hero__title">Grow Your Organic Traffic with Smarter Content</h1>
-      <p class="hero__subtitle">
-        Practical guides, proven strategies, and technical insights to help you rank higher,
-        convert better, and build websites that search engines love.
-      </p>
-      <div class="hero__actions">
-        <a href="/blog" class="btn btn--primary">Read the Blog</a>
-        <a href="/services" class="btn btn--secondary">Our Services</a>
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-surface-950 pb-20 pt-12 lg:pb-28 lg:pt-20">
+    <div class="absolute inset-0 bg-hero-glow"></div>
+    <div class="absolute inset-0 bg-grid opacity-30"></div>
+    <div
+      class="animate-float absolute right-[10%] top-20 hidden h-72 w-72 rounded-full bg-brand-500/10 blur-3xl lg:block"
+    >
+    </div>
+    <div
+      class="animate-float absolute bottom-10 left-[5%] hidden h-48 w-48 rounded-full bg-emerald-500/5 blur-3xl lg:block"
+      style="animation-delay: 2s"
+    >
+    </div>
+
+    <div class="container-site relative">
+      <div class="mx-auto max-w-4xl text-center">
+        <div class="reveal animate-fade-in-down">
+          <span class="section-label">
+            <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-brand-400"></span>
+            Premium SEO & Link Building
+          </span>
+        </div>
+
+        <h1 class="reveal mt-6 text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl">
+          Build <span class="text-gradient">Authority</span> That Compounds
+        </h1>
+
+        <p class="reveal mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-400">
+          Web Grouth delivers enterprise-grade off-page SEO, guest posting, and link building
+          strategies that drive rankings, referral traffic, and measurable ROI.
+        </p>
+
+        <div class="reveal mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a href="/contact" class="btn-primary w-full sm:w-auto"> Start Your Growth Sprint </a>
+          <a href="/services" class="btn-secondary w-full sm:w-auto"> Explore Services </a>
+        </div>
+
+        <div class="reveal mt-14 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 opacity-60">
+          {
+            logos.map((logo) => (
+              <span class="text-sm font-semibold uppercase tracking-widest text-slate-500">{logo}</span>
+            ))
+          }
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="section__header">
-        <h2>What We Cover</h2>
-        <p>Everything you need to build a sustainable organic growth engine.</p>
+  <!-- Pillars -->
+  <section class="border-y border-white/5 bg-surface-900 py-20">
+    <div class="container-site">
+      <div class="reveal mb-14 text-center">
+        <span class="section-label">Core Frameworks</span>
+        <h2 class="mt-4 text-3xl font-bold text-white sm:text-4xl">The Web Grouth Growth Engine</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-slate-400">
+          Four integrated pillars that turn SEO from a cost center into a compounding growth channel.
+        </p>
       </div>
-      <div class="grid grid--3">
-        <div class="feature-card">
-          <div class="feature-card__icon" aria-hidden="true">🔍</div>
-          <h3>On-Page SEO</h3>
-          <p>Title tags, headings, internal linking, and content optimization that moves the needle.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-card__icon" aria-hidden="true">📈</div>
-          <h3>Content Strategy</h3>
-          <p>Keyword research, content clusters, and editorial calendars that drive qualified traffic.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-card__icon" aria-hidden="true">⚡</div>
-          <h3>Technical SEO</h3>
-          <p>Sitemaps, structured data, Core Web Vitals, and crawlability for modern static sites.</p>
-        </div>
+
+      <div class="grid gap-6 md:grid-cols-3">
+        {
+          pillars.map((pillar, i) => (
+            <div
+              class="reveal glass-card group p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-brand-500/10"
+              style={`animation-delay: ${i * 100}ms`}
+            >
+              <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-500/15 text-brand-400 transition-transform duration-500 group-hover:scale-110">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={pillar.icon} />
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-white group-hover:text-brand-300">{pillar.title}</h3>
+              <p class="mt-3 text-sm leading-relaxed text-slate-400">{pillar.desc}</p>
+              <a
+                href="/services"
+                class="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-brand-400 transition-all group-hover:gap-2"
+              >
+                Learn more
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
 
-  <section class="section section--alt">
-    <div class="container">
-      <div class="section__header">
-        <h2>Latest Articles</h2>
-        <a href="/blog" class="link-arrow">View all posts →</a>
-      </div>
-      <div class="grid grid--blog">
-        {posts.map((post) => <BlogCard post={post} />)}
+  <!-- Stats strip -->
+  <section class="bg-surface-950 py-12">
+    <div class="container-site">
+      <div class="grid grid-cols-2 gap-6 lg:grid-cols-4">
+        {
+          [
+            { n: '500+', l: 'Publisher Network' },
+            { n: '2.4M', l: 'Links Delivered' },
+            { n: 'DR 50+', l: 'Average Placement' },
+            { n: '94%', l: 'Client Retention' },
+          ].map((s, i) => (
+            <div class="reveal text-center" style={`animation-delay: ${i * 80}ms`}>
+              <p class="text-3xl font-extrabold text-gradient">{s.n}</p>
+              <p class="mt-1 text-sm text-slate-500">{s.l}</p>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
 
-  <section class="cta-banner">
-    <div class="container cta-banner__inner">
-      <div>
-        <h2>Ready to improve your SEO?</h2>
-        <p>Let's discuss how we can help you grow organic traffic and build a content engine that scales.</p>
+  <!-- Latest Articles -->
+  <section class="py-20">
+    <div class="container-site">
+      <div class="reveal mb-12 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
+        <div>
+          <span class="section-label">Insights</span>
+          <h2 class="mt-4 text-3xl font-bold text-white">Latest from the Blog</h2>
+          <p class="mt-2 text-slate-400">Off-page SEO guides, outreach tactics, and link building playbooks.</p>
+        </div>
+        <a href="/blog" class="btn-outline shrink-0"> View All Posts </a>
       </div>
-      <a href="/contact" class="btn btn--primary">Get in Touch</a>
+
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {latestPosts.map((post, i) => (
+          <div class="reveal" style={`animation-delay: ${i * 100}ms`}>
+            <BlogCard post={post} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative overflow-hidden py-20">
+    <div class="absolute inset-0 bg-gradient-to-r from-brand-950/50 via-surface-900 to-surface-900"></div>
+    <div class="absolute inset-0 bg-hero-glow opacity-50"></div>
+
+    <div class="container-site relative">
+      <div
+        class="reveal flex flex-col items-center justify-between gap-8 rounded-3xl border border-brand-500/20 bg-surface-900/80 p-10 backdrop-blur-sm lg:flex-row lg:p-14"
+      >
+        <div class="max-w-xl">
+          <h2 class="text-3xl font-bold text-white">Ready to dominate your niche?</h2>
+          <p class="mt-4 text-slate-400">
+            Book a free strategy call. We'll audit your backlink profile, identify gaps, and map a
+            90-day authority building plan.
+          </p>
+        </div>
+        <a href="/contact" class="btn-primary shrink-0 transition-transform hover:scale-105">
+          Book Free Strategy Call
+        </a>
+      </div>
     </div>
   </section>
 </BaseLayout>

@@ -1,0 +1,22 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  label?: string;
+}
+
+const { title, description, label = 'Page' } = Astro.props;
+---
+
+<section class="relative overflow-hidden border-b border-white/5 bg-surface-950 py-16 lg:py-20">
+  <div class="absolute inset-0 bg-hero-glow"></div>
+  <div class="absolute inset-0 bg-grid opacity-20"></div>
+
+  <div class="container-site relative">
+    <div class="reveal max-w-3xl">
+      <span class="section-label">{label}</span>
+      <h1 class="mt-4 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">{title}</h1>
+      {description && <p class="mt-5 text-lg leading-relaxed text-slate-400">{description}</p>}
+    </div>
+  </div>
+</section>

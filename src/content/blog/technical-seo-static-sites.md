@@ -1,51 +1,62 @@
 ---
-title: "Technical SEO Checklist for Modern Static Sites"
-description: "A practical technical SEO checklist for static sites built with Astro, covering sitemaps, structured data, performance, and crawlability."
+title: "Technical SEO Checklist for Link Building Campaigns"
+description: "A practical technical SEO checklist to ensure your site is ready to receive link equity — covering crawlability, indexation, Core Web Vitals, and structured data."
 pubDate: 2026-01-05
 updatedDate: 2026-02-01
-author: "Alex Rivera"
-image: "/og-default.svg"
-tags: ["Technical SEO", "Astro", "Web Performance"]
+author: "David Park"
+image: "/blog-placeholder.svg"
+tags: ["Technical SEO", "Link Building", "Site Audit"]
 ---
 
-Static site generators like Astro offer incredible performance out of the box—but performance alone doesn't guarantee great SEO. Here's a checklist to ensure your static site is fully optimized for search engines.
+Before you invest in guest posting or outreach, your site's technical foundation must be solid. Links pointing to slow, unindexed, or poorly structured pages waste budget and delay results.
 
 ## Crawlability Essentials
 
-- **robots.txt**: Allow search engines to crawl important pages
-- **XML sitemap**: Submit via Google Search Console
-- **Canonical URLs**: Prevent duplicate content issues
-- **Clean URL structure**: Use readable, keyword-rich slugs
+- **robots.txt** — Allow search engines to crawl all important pages
+- **XML sitemap** — Submit via Google Search Console and keep updated
+- **Canonical URLs** — Prevent duplicate content from diluting link equity
+- **Clean URL structure** — Readable, keyword-rich slugs for landing pages
 
-## Meta Tags and Open Graph
+## Indexation Audit
 
-Every page needs unique:
+Run a crawl and compare indexed pages vs. submitted pages in Search Console. Common blockers:
 
-- `<title>` tag
-- Meta description
-- Open Graph tags for social sharing
-- Twitter Card tags
+- Noindex tags on important pages
+- Orphan pages with no internal links
+- Redirect chains longer than two hops
+- Soft 404s returning 200 status codes
 
-## Structured Data
+## Page Speed Optimization
+
+Every guest post link should land on a fast page. Target:
+
+- LCP under 2.5 seconds
+- INP under 200 milliseconds
+- CLS under 0.1
+
+Compress images, defer non-critical JavaScript, and use a CDN for global audiences.
+
+## Structured Data for Rich Results
 
 Add JSON-LD schema markup for:
 
-- `Organization` or `WebSite` on the homepage
-- `Article` or `BlogPosting` on blog posts
+- `Organization` on the homepage
+- `Article` or `BlogPosting` on content pages
+- `FAQPage` on support and guide content
 - `BreadcrumbList` for navigation context
 
-## Performance Optimization
+## Link Destination Optimization
 
-Static sites already excel here, but verify:
+For every URL targeted in your link building campaign, verify:
 
-- Images are properly sized and use modern formats
-- CSS is minimal and critical styles are inlined if needed
-- No render-blocking third-party scripts
-
-## Mobile-First Indexing
-
-Google indexes the mobile version of your site first. Ensure responsive design, readable font sizes, and touch-friendly navigation.
+1. Page is indexed and returns 200 status
+2. Title tag and H1 include target keyword
+3. Internal links point to the page from related content
+4. Page loads in under 3 seconds on mobile
+5. Clear conversion path exists below the fold
 
 ## Conclusion
 
-Technical SEO for static sites is straightforward when you build it in from the start. Use this checklist during development—not as an afterthought.
+Technical SEO is the foundation that makes link building work. Fix the infrastructure first, then scale your off-page efforts with confidence.
+
+Need a full technical audit before launching outreach? [Contact Web Grouth](/contact) for a complimentary site review.

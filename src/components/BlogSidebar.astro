@@ -1,0 +1,92 @@
+---
+import GuestPostingCTA from './GuestPostingCTA.astro';
+import LatestArticles from './LatestArticles.astro';
+import NewsletterWidget from './NewsletterWidget.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  posts: CollectionEntry<'blog'>[];
+  currentPostId?: string;
+}
+
+const { posts, currentPostId } = Astro.props;
+---
+
+<aside class="space-y-6 lg:sticky lg:top-28 lg:self-start">
+  <GuestPostingCTA variant="sidebar" />
+
+  <div
+    class="rounded-2xl border border-white/10 bg-gradient-to-r from-brand-500/10 to-transparent p-5 transition-all duration-500 hover:border-brand-500/30"
+  >
+    <div class="flex items-start gap-3">
+      <div
+        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-500/20 text-brand-400"
+      >
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+        </svg>
+      </div>
+      <div>
+        <h4 class="text-sm font-bold text-white">Authority Sprint</h4>
+        <p class="mt-1 text-xs leading-relaxed text-slate-400">
+          30-day link velocity program. 15+ placements, competitor gap analysis, and monthly DR tracking.
+        </p>
+        <a
+          href="/services#authority-building"
+          class="mt-2 inline-block text-xs font-semibold text-brand-400 transition-colors hover:text-brand-300"
+        >
+          Learn more →
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <LatestArticles posts={posts} excludeId={currentPostId} />
+
+  <NewsletterWidget />
+
+  <!-- Floating lead popup trigger -->
+  <div
+    id="sidebar-popup"
+    class="relative hidden rounded-2xl border-2 border-brand-500/50 bg-surface-900 p-5 shadow-2xl shadow-brand-500/20"
+  >
+    <button
+      id="popup-close"
+      type="button"
+      class="absolute right-3 top-3 text-slate-500 hover:text-white"
+      aria-label="Close"
+    >
+      ✕
+    </button>
+    <p class="text-sm font-bold text-white">Wait — grab our outreach template pack!</p>
+    <p class="mt-1 text-xs text-slate-400">Used by 500+ SEO agencies. Free with signup.</p>
+    <NewsletterWidget compact={true} widgetId="newsletter-popup" />
+  </div>
+</aside>
+
+<script>
+  const popup = document.getElementById('sidebar-popup');
+  const closeBtn = document.getElementById('popup-close');
+  let popupShown = false;
+
+  const showPopup = () => {
+    if (popupShown || !popup) return;
+    popupShown = true;
+    popup.classList.remove('hidden');
+    popup.classList.add('animate-scale-in');
+  };
+
+  setTimeout(showPopup, 8000);
+
+  document.addEventListener('mouseleave', (e) => {
+    if (e.clientY <= 0) showPopup();
+  });
+
+  closeBtn?.addEventListener('click', () => {
+    popup?.classList.add('hidden');
+  });
+</script>

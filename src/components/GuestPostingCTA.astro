@@ -1,0 +1,59 @@
+---
+interface Props {
+  variant?: 'sidebar' | 'inline';
+}
+
+const { variant = 'sidebar' } = Astro.props;
+---
+
+<div
+  class:list={[
+    'relative overflow-hidden rounded-2xl border border-brand-500/30 bg-gradient-to-br from-brand-950/80 via-surface-800 to-surface-900 p-6 transition-all duration-500 hover:border-brand-400/50 hover:shadow-lg hover:shadow-brand-500/10',
+    variant === 'sidebar' ? 'animate-pulse-glow' : '',
+  ]}
+>
+  <div class="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-brand-500/10 blur-2xl"></div>
+
+  <span class="tag-pill mb-3">Guest Posting</span>
+  <h3 class="text-lg font-bold text-white">
+    {variant === 'sidebar' ? 'Premium Guest Post Packages' : 'Scale Your Authority with Guest Posts'}
+  </h3>
+  <p class="mt-2 text-sm leading-relaxed text-slate-400">
+    White-hat placements on DR 50+ domains. Editorial-quality content, contextual links, and
+    transparent reporting — built for enterprise SEO teams.
+  </p>
+
+  <ul class="mt-4 space-y-2 text-sm text-slate-300">
+    <li class="flex items-center gap-2">
+      <svg class="h-4 w-4 shrink-0 text-brand-400" fill="currentColor" viewBox="0 0 20 20">
+        <path
+          fill-rule="evenodd"
+          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+          clip-rule="evenodd"></path>
+      </svg>
+      500+ vetted publisher network
+    </li>
+    <li class="flex items-center gap-2">
+      <svg class="h-4 w-4 shrink-0 text-brand-400" fill="currentColor" viewBox="0 0 20 20">
+        <path
+          fill-rule="evenodd"
+          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+          clip-rule="evenodd"></path>
+      </svg>
+      Niche-relevant contextual links
+    </li>
+    <li class="flex items-center gap-2">
+      <svg class="h-4 w-4 shrink-0 text-brand-400" fill="currentColor" viewBox="0 0 20 20">
+        <path
+          fill-rule="evenodd"
+          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+          clip-rule="evenodd"></path>
+      </svg>
+      From $299/placement
+    </li>
+  </ul>
+
+  <a href="/contact" class="btn-primary mt-5 w-full text-center text-sm">
+    Get a Custom Quote
+  </a>
+</div>

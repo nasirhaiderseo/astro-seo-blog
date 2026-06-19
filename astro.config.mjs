@@ -1,7 +1,8 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://example.com',
-  integrations: [sitemap()],
+  site: 'https://webgrouth.com',
+  integrations: [tailwind(), sitemap()],
 });
