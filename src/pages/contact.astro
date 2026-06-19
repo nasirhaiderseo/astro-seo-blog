@@ -2,12 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import SocialProof from '../components/SocialProof.astro';
-
-const contactDetails = [
-  { label: 'Email Us', value: 'nasirhaiderseo@gmail.com', href: 'mailto:nasirhaiderseo@gmail.com', desc: 'Send us your project details anytime.' },
-  { label: 'WhatsApp / Call', value: '+92 332 7810261', href: 'https://wa.me/923327810261', desc: 'Tap to start a quick chat with us.' },
-  { label: 'Response Time', value: 'Within 24 Hours', href: null, desc: 'We reply quickly Monday to Friday.' },
-];
 ---
 
 <BaseLayout
@@ -16,54 +10,56 @@ const contactDetails = [
 >
   <PageHero
     label="Get In Touch"
-    title="Let's Talk About Your Google Rankings"
-    description="Tell us about your website and SEO goals. We will look at your site and reply with a clear plan within 24 hours."
+    title="Let's Talk About Your Project"
+    description="Tell us about your SEO goals. We will reply with a clear plan within 24 hours."
   />
 
   <section class="py-16 lg:py-20 reveal">
     <div class="container-site">
       <div class="grid gap-12 lg:grid-cols-5 items-start">
         
-        <!-- بایاں کالم: رابطہ کارڈز (آسان انگلش میں) -->
-        <div class="lg:col-span-2 space-y-6">
-          <div>
-            <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Contact Info</span>
-            <h2 class="text-2xl font-extrabold text-slate-950 mt-2">Direct Contact</h2>
-            <p class="mt-3 text-sm leading-relaxed text-slate-500">
-              Want to get high-quality guest posts, a website speed fix, or a full SEO plan? Send us a message or tap below to chat on WhatsApp.
-            </p>
+        <!-- بایاں کالم: بالکل مختصر اور اینیمیٹڈ رابطہ کارڈز -->
+        <div class="lg:col-span-2 space-y-4">
+          <h2 class="text-xl font-extrabold text-slate-950">Quick Contact</h2>
+          <p class="text-sm text-slate-500">Tap below to message us directly. We reply quickly.</p>
+
+          <!-- ای میل کارڈ -->
+          <div class="card p-5 hover:border-blue-200 hover:shadow-md hover:shadow-blue-50 transition-all duration-300 rounded-2xl">
+            <p class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Email Us</p>
+            <a href="mailto:nasirhaiderseo@gmail.com" class="text-sm font-bold text-blue-600 hover:underline mt-1.5 inline-block">
+              nasirhaiderseo@gmail.com
+            </a>
           </div>
 
-          <div class="space-y-4">
-            {
-              contactDetails.map((item) => (
-                <div class="card p-5 hover:border-blue-100 transition-colors duration-300">
-                  <p class="text-[10px] font-bold uppercase tracking-wider text-slate-400">{item.label}</p>
-                  <p class="text-sm font-bold text-slate-950 mt-1.5">
-                    {item.href ? (
-                      <a href={item.href} class="text-blue-600 hover:underline inline-flex items-center gap-1">
-                        {item.value}
-                      </a>
-                    ) : (
-                      item.value
-                    )}
-                  </p>
-                  <p class="text-xs text-slate-400 mt-1">{item.desc}</p>
-                </div>
-              ))
-            }
+          <!-- اینیمیٹڈ واٹس ایپ کارڈ (گرین پلسنگ اور گلو کے ساتھ) -->
+          <div class="card p-5 border-emerald-100 hover:border-emerald-300 hover:shadow-lg hover:shadow-emerald-50 transition-all duration-300 rounded-2xl relative overflow-hidden bg-gradient-to-br from-emerald-50/10 to-transparent">
+            <!-- لائیو گرین پلسنگ ڈاٹ -->
+            <div class="absolute top-5 right-5 flex h-3 w-3">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+            </div>
+
+            <p class="text-[10px] font-bold uppercase tracking-wider text-emerald-600 flex items-center gap-1">
+              WhatsApp Chat <span class="text-[9px] font-semibold text-emerald-500 lowercase">(online)</span>
+            </p>
+            
+            <a href="https://wa.me/923327810261" target="_blank" rel="noopener noreferrer" class="text-sm font-bold text-emerald-600 hover:underline mt-1.5 flex items-center gap-2">
+              <!-- واٹس ایپ SVG آئیکن -->
+              <svg class="h-5 w-5 fill-current text-emerald-500 animate-float" viewBox="0 0 24 24"><path d="M12.004 2C6.51 2 2.014 6.5 2 12a9.99 9.99 0 0 0 1.457 5.18l-1.39 5.084 5.21-1.368c1.42.775 3.02 1.185 4.717 1.185 5.51 0 10.002-4.5 10.012-10S17.5 2 12.004 2zm5.72 13.047c-.244.688-1.201 1.25-1.649 1.302-.438.051-.85.253-2.785-.515-2.478-.98-4.072-3.5-4.195-3.664-.123-.163-.997-1.327-.997-2.53 0-1.204.628-1.796.852-2.038.223-.242.487-.302.65-.302.162 0 .324.004.466.01.147.007.345-.056.54.417.198.483.682 1.66.743 1.782.06.12.1.263.02.423-.08.16-.12.26-.24.4-.12.14-.253.313-.362.42-.12.118-.246.248-.106.49.14.24.62 1.024 1.332 1.657.915.815 1.685 1.068 1.924 1.188.24.12.378.1.52-.063.14-.163.606-.704.767-.945.162-.24.325-.2.548-.118.223.081 1.416.667 1.66.788.243.12.405.18.466.282.06.1.06.58-.184 1.27z"/></svg>
+              +92 332 7810261
+            </a>
           </div>
         </div>
 
-        <!-- دایاں کالم: ماڈرن فارم فیلڈز -->
+        <!-- دایاں کالم: شارٹ فارم فیلڈز اور بجٹ رینج -->
         <div class="lg:col-span-3">
           <form id="contact-form" class="card rounded-3xl p-8 lg:p-10 shadow-lg shadow-blue-50/50" action="#" method="POST">
             <h3 class="text-xl font-bold text-slate-950">Send a Message</h3>
-            <p class="mt-1.5 text-xs text-slate-400">Fill in the fields below and we will get back to you soon.</p>
+            <p class="mt-1 text-xs text-slate-400">Fill in the fields below and we will get back to you.</p>
 
-            <div class="mt-8 grid gap-5 sm:grid-cols-2">
+            <div class="mt-6 grid gap-4 sm:grid-cols-2">
               <div>
-                <label for="name" class="mb-2 block text-xs font-semibold text-slate-700">Full Name *</label>
+                <label for="name" class="mb-1.5 block text-xs font-semibold text-slate-700">Full Name *</label>
                 <input
                   type="text"
                   id="name"
@@ -74,21 +70,21 @@ const contactDetails = [
                 />
               </div>
               <div>
-                <label for="email" class="mb-2 block text-xs font-semibold text-slate-700">Work Email *</label>
+                <label for="email" class="mb-1.5 block text-xs font-semibold text-slate-700">Email *</label>
                 <input
                   type="email"
                   id="email"
                   name="email"
                   required
-                  placeholder="yourname@company.com"
+                  placeholder="name@email.com"
                   class="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm focus:border-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-50 transition-all"
                 />
               </div>
             </div>
 
-            <div class="mt-5 grid gap-5 sm:grid-cols-2">
+            <div class="mt-4 grid gap-4 sm:grid-cols-2">
               <div>
-                <label for="company" class="mb-2 block text-xs font-semibold text-slate-700">Website Link / Company</label>
+                <label for="company" class="mb-1.5 block text-xs font-semibold text-slate-700">Website URL</label>
                 <input
                   type="text"
                   id="company"
@@ -98,23 +94,25 @@ const contactDetails = [
                 />
               </div>
               <div>
-                <label for="budget" class="mb-2 block text-xs font-semibold text-slate-700">Monthly Budget</label>
+                <!-- آپ کی فرمائش کے مطابق چھوٹا بجٹ آپشن شامل کر دیا گیا ہے -->
+                <label for="budget" class="mb-1.5 block text-xs font-semibold text-slate-700">Monthly Budget</label>
                 <select
                   id="budget"
                   name="budget"
                   class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-50 transition-all"
                 >
-                  <option value="">Select your range</option>
-                  <option value="2500-5000">$2,500 – $5,000</option>
-                  <option value="5000-10000">$5,000 – $10,000</option>
-                  <option value="10000-25000">$10,000 – $25,000</option>
-                  <option value="25000+">$25,000+</option>
+                  <option value="">Select your budget</option>
+                  <option value="under-200">Less than $200</option>
+                  <option value="200-500">$200 – $500</option>
+                  <option value="500-2000">$500 – $2,000</option>
+                  <option value="2000-5000">$2,000 – $5,000</option>
+                  <option value="5000+">$5,000+</option>
                 </select>
               </div>
             </div>
 
-            <div class="mt-5">
-              <label for="service" class="mb-2 block text-xs font-semibold text-slate-700">Service You Need *</label>
+            <div class="mt-4">
+              <label for="service" class="mb-1.5 block text-xs font-semibold text-slate-700">Service You Need *</label>
               <select
                 id="service"
                 name="service"
@@ -126,18 +124,18 @@ const contactDetails = [
                 <option value="technical">Technical SEO & Speed</option>
                 <option value="content">Content Velocity (Writing)</option>
                 <option value="onpage">On-Page Metrics</option>
-                <option value="full">Full SEO Retainer</option>
+                <option value="full">Full SEO Service</option>
               </select>
             </div>
 
-            <div class="mt-5">
-              <label for="message" class="mb-2 block text-xs font-semibold text-slate-700">Project Details *</label>
+            <div class="mt-4">
+              <label for="message" class="mb-1.5 block text-xs font-semibold text-slate-700">Project Details *</label>
               <textarea
                 id="message"
                 name="message"
-                rows="4"
+                rows="3"
                 required
-                placeholder="Tell us about your website and what keywords you want to rank for..."
+                placeholder="Tell us about your SEO goals..."
                 class="w-full resize-y rounded-2xl border border-slate-200 px-4 py-3 text-sm focus:border-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-50 transition-all"
               ></textarea>
             </div>
@@ -151,13 +149,26 @@ const contactDetails = [
     </div>
   </section>
 
-  <!-- ٹرسٹ اور سوشل پروف سیکشن -->
   <div class="reveal">
     <SocialProof />
   </div>
 </BaseLayout>
 
 <style>
+  /* واٹس ایپ فلوٹنگ اینیمیشن */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-4px);
+    }
+  }
+
+  .animate-float {
+    animation: float 2.5s ease-in-out infinite;
+  }
+
   /* اسکرول ریویل (Scroll Reveal) کی بنیادی حالت */
   .reveal {
     opacity: 0;
@@ -180,7 +191,7 @@ const contactDetails = [
     const btn = form.querySelector('button[type="submit"]');
     if (!(btn instanceof HTMLButtonElement)) return;
     const original = btn.textContent;
-    btn.textContent = '✓ Message Sent!';
+    btn.textContent = '✓ Sent Successfully!';
     btn.disabled = true;
     setTimeout(() => {
       btn.textContent = original;
