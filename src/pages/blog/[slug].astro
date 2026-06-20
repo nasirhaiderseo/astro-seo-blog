@@ -1,109 +1,115 @@
----
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import BlogSidebar from '../../components/BlogSidebar.astro';
-import BlogCover from '../../components/BlogCover.astro';
-import { getCollection, render, type CollectionEntry } from 'astro:content';
-import { getPostMeta } from '../../lib/blog';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-export async function getStaticPaths() {
-  const posts = await getCollection('blog', ({ data }) => !data.draft);
-  return posts.map((post) => ({
-    params: { slug: post.id },
-    props: { post },
-  }));
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    @apply overflow-x-hidden;
+  }
+
+  body {
+    @apply bg-white text-slate-900 antialiased overflow-x-hidden w-full;
+  }
+
+  ::selection {
+    @apply bg-blue-100 text-blue-900;
+  }
 }
 
-interface Props {
-  post: CollectionEntry<'blog'>;
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-6xl px-6 lg:px-8 box-border;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-blue-600 bg-blue-600 px-6 py-3 text-sm font-medium text-white shadow-sm transition-all duration-300 ease-in-out hover:bg-blue-700 hover:shadow-blue-200 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-medium text-slate-700 shadow-sm transition-all duration-300 ease-in-out hover:border-blue-600 hover:text-blue-600 hover:bg-blue-50/50 hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .section-label {
+    @apply inline-flex items-center rounded-full bg-blue-50 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-blue-600 uppercase;
+  }
+
+  .card {
+    @apply rounded-2xl border border-slate-100 bg-white shadow-sm transition-all duration-300 ease-in-out hover:border-blue-100 hover:shadow-md hover:shadow-slate-100/80 hover:-translate-y-1;
+  }
+
+  /* موبائل اسکرول اور زبردست بلاگ باڈی امیجز */
+  .prose-blog {
+    @apply text-base leading-[1.8] text-slate-700 max-w-full overflow-hidden;
+  }
+
+  .prose-blog h2 {
+    @apply mb-4 mt-12 scroll-mt-24 text-2xl font-bold text-slate-900;
+  }
+
+  .prose-blog h3 {
+    @apply mb-3 mt-8 text-xl font-bold text-slate-900;
+  }
+
+  .prose-blog p {
+    @apply mb-6 break-words;
+  }
+
+  .prose-blog ul,
+  .prose-blog ol {
+    @apply mb-6 space-y-2 pl-6;
+  }
+
+  .prose-blog ul {
+    @apply list-disc;
+  }
+
+  .prose-blog ol {
+    @apply list-decimal;
+  }
+
+  .prose-blog li {
+    @apply leading-7;
+  }
+
+  .prose-blog strong {
+    @apply font-semibold text-slate-900;
+  }
+
+  .prose-blog a {
+    @apply text-blue-600 font-medium underline decoration-blue-200 underline-offset-4 hover:decoration-blue-600;
+  }
+
+  .prose-blog code {
+    @apply rounded-md border border-slate-100 bg-slate-50 px-1.5 py-0.5 text-sm text-slate-800 break-all;
+  }
+
+  .prose-blog blockquote {
+    @apply my-8 border-l-4 border-blue-600 bg-slate-50/50 rounded-r-lg py-1 pl-6 italic text-slate-700;
+  }
+
+  /* ٹیبل کو موبائل اسکرین پر خودکار اندرونی اسکرول دینا */
+  .prose-blog table {
+    @apply block w-full overflow-x-auto border-collapse border border-slate-100 text-sm my-8 whitespace-nowrap;
+  }
+
+  .prose-blog th {
+    @apply border border-slate-100 bg-slate-50 px-4 py-3 text-left font-semibold text-slate-900;
+  }
+
+  .prose-blog td {
+    @apply border border-slate-100 px-4 py-3 text-slate-700;
+  }
+
+  .prose-blog img {
+    @apply max-w-full h-auto rounded-2xl mx-auto my-8 block shadow-sm border border-slate-100;
+  }
+
+  .tag {
+    @apply inline-block rounded-full bg-slate-50 border border-slate-100 px-3 py-1 text-xs font-medium text-slate-600 transition-colors hover:border-blue-100 hover:text-blue-600 hover:bg-blue-50/20;
+  }
+
+  .sidebar-block {
+    @apply rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition-all duration-300 hover:border-blue-100 hover:shadow-md;
+  }
 }
-
-const { post } = Astro.props;
-const { Content } = await render(post);
-const meta = getPostMeta(post);
-const { title, description, pubDate, updatedDate, author, image, tags, readTime } = meta;
-
-const allPosts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
-
-const formattedDate = pubDate.toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-});
-
-const ogImage = image ?? '/og-default.svg';
----
-
-<BaseLayout
-  title={title}
-  description={description}
-  image={ogImage}
-  type="article"
-  publishedTime={pubDate.toISOString()}
-  author={author}
->
-  <div class="container-site py-8 lg:py-12">
-    <!-- بیک بٹن -->
-    <a href="/blog" class="text-xs font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1.5 mb-6">
-      ← Back to blog
-    </a>
-
-    <!-- نیا پریمیم ایڈیٹوریل سٹرکچر -->
-    <div class="grid gap-10 lg:grid-cols-10 items-start">
-      <article class="lg:col-span-7">
-        
-        <!-- 1. سب سے پہلے اوپر بڑی راؤنڈڈ امیج -->
-        <BlogCover title={title} image={image} aspect="wide" class="mb-8 rounded-2xl shadow-md overflow-hidden" />
-
-        <!-- 2. اس کے بعد ہیڈنگ اور میٹا ڈیٹا -->
-        <div class="border-b border-slate-100 pb-6 mb-8">
-          <div class="flex flex-wrap items-center gap-2.5 text-xs font-semibold text-slate-400">
-            <time datetime={pubDate.toISOString()}>{formattedDate}</time>
-            <span>·</span>
-            <span>{readTime} min read</span>
-            <span>·</span>
-            <span>By {author}</span>
-          </div>
-
-          <h1 class="mt-3 text-3xl font-extrabold leading-tight tracking-tight text-slate-950 sm:text-4xl">
-            {title}
-          </h1>
-          
-          <p class="mt-4 text-sm leading-relaxed text-slate-500">{description}</p>
-
-          {
-            tags.length > 0 && (
-              <ul class="mt-5 flex flex-wrap gap-1.5" aria-label="Tags">
-                {tags.map((tag) => (
-                  <li class="tag text-[10px] py-0.5 px-2.5">{tag}</li>
-                ))}
-              </ul>
-            )
-          }
-        </div>
-
-        <!-- 3. اصل آرٹیکل باڈی -->
-        <div class="prose-blog">
-          <Content />
-        </div>
-
-        <!-- مصنف کا کارڈ -->
-        <div class="mt-12 rounded-2xl border border-slate-100 bg-slate-50/50 p-6 flex items-center gap-4">
-          <div class="h-10 w-10 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-sm">
-            {author.charAt(0)}
-          </div>
-          <div>
-            <p class="text-xs font-bold text-slate-950">{author}</p>
-            <p class="mt-0.5 text-xs text-slate-500">SEO strategist at Web Grouth, specializing in search engine rankings.</p>
-          </div>
-        </div>
-      </article>
-
-      <!-- سائڈ بار جو موبائل پر نیچے اور ڈیسک ٹاپ پر سائڈ پر رہے گا -->
-      <div class="lg:col-span-3 space-y-6 lg:sticky lg:top-24 lg:self-start">
-        <BlogSidebar posts={allPosts} currentPostId={post.id} />
-      </div>
-    </div>
-  </div>
-</BaseLayout>
