@@ -8,7 +8,7 @@
   }
 
   body {
-    @apply bg-white text-slate-900 antialiased;
+    @apply bg-white text-slate-900 antialiased overflow-x-hidden;
   }
 
   ::selection {
@@ -37,8 +37,9 @@
     @apply rounded-2xl border border-slate-100 bg-white shadow-sm transition-all duration-300 ease-in-out hover:border-blue-100 hover:shadow-md hover:shadow-slate-100/80 hover:-translate-y-1;
   }
 
+  /* موبائل اسکرول اور زبردست بلاگ باڈی امیجز */
   .prose-blog {
-    @apply text-base leading-[1.8] text-slate-700;
+    @apply text-base leading-[1.8] text-slate-700 max-w-full overflow-hidden;
   }
 
   .prose-blog h2 {
@@ -50,7 +51,7 @@
   }
 
   .prose-blog p {
-    @apply mb-6;
+    @apply mb-6 break-words;
   }
 
   .prose-blog ul,
@@ -79,15 +80,16 @@
   }
 
   .prose-blog code {
-    @apply rounded-md border border-slate-100 bg-slate-50 px-1.5 py-0.5 text-sm text-slate-800;
+    @apply rounded-md border border-slate-100 bg-slate-50 px-1.5 py-0.5 text-sm text-slate-800 break-all;
   }
 
   .prose-blog blockquote {
     @apply my-8 border-l-4 border-blue-600 bg-slate-50/50 rounded-r-lg py-1 pl-6 italic text-slate-700;
   }
 
+  /* ٹیبل کو موبائل اسکرین پر خودکار اسکرول دینا */
   .prose-blog table {
-    @apply my-8 w-full border-collapse border border-slate-100 text-sm;
+    @apply block w-full overflow-x-auto border-collapse border border-slate-100 text-sm my-8 whitespace-nowrap;
   }
 
   .prose-blog th {
@@ -98,11 +100,15 @@
     @apply border border-slate-100 px-4 py-3 text-slate-700;
   }
 
+  .prose-blog img {
+    @apply max-w-full h-auto rounded-2xl mx-auto my-8 block shadow-sm border border-slate-100;
+  }
+
   .tag {
     @apply inline-block rounded-full bg-slate-50 border border-slate-100 px-3 py-1 text-xs font-medium text-slate-600 transition-colors hover:border-blue-100 hover:text-blue-600 hover:bg-blue-50/20;
   }
 
   .sidebar-block {
-    @apply rounded-2xl border border-slate-100 bg-white p-6 shadow-sm;
+    @apply rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition-all duration-300 hover:border-blue-100 hover:shadow-md;
   }
 }
