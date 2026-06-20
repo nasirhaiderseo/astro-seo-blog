@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
+import SocialProof from '../components/SocialProof.astro';
 
 const budgetOptions = [
   { value: 'under-200', label: 'Less than $200' },
@@ -8,12 +9,6 @@ const budgetOptions = [
   { value: '500-2000', label: '$500 – $2,000' },
   { value: '2000-5000', label: '$2,000 – $5,000' },
   { value: '5000+', label: '$5,000+' },
-];
-
-const seoRequirements = [
-  { value: 'dr30', label: 'Standard Sites (DR 30+)' },
-  { value: 'dr50', label: 'Premium Authority (DR 50+)' },
-  { value: 'dr70', label: 'Elite Publications (DR 70+)' },
 ];
 ---
 
@@ -155,7 +150,6 @@ const seoRequirements = [
                   class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-50 transition-all"
                 >
                   <option value="">Select authority level</option>
-                  {milestones.map(() => null)} <!-- Keep file clean -->
                   <option value="da-30">Basic (DR 30+ blogs)</option>
                   <option value="da-50">Standard (DR 50+ blogs)</option>
                   <option value="da-70">High-Authority (DR 70+ blogs)</option>
@@ -227,7 +221,7 @@ const seoRequirements = [
 </style>
 
 <script>
-  // فارم سبمیشن اسکرپٹ (آرڈر سبمٹ کرنے پر پاپ اپ)
+  // فارم سبمیشن اسکرپٹ (آرڈر سبمٹ کرنے پر پاپ اب)
   const form = document.getElementById('order-form');
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
