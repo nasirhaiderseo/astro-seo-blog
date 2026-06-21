@@ -1,15 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
-import SocialProof from '../components/SocialProof.astro';
-
-const budgetOptions = [
-  { value: 'under-200', label: 'Less than $200' },
-  { value: '200-500', label: '$200 – $500' },
-  { value: '500-2000', label: '$500 – $2,000' },
-  { value: '2000-5000', label: '$2,000 – $5,000' },
-  { value: '5000+', label: '$5,000+' },
-];
 ---
 
 <BaseLayout
@@ -19,189 +10,150 @@ const budgetOptions = [
   <PageHero
     label="Order Form"
     title="Place Your Guest Post Order"
-    description="Fill out the simple form below to submit your campaign requirements. Our SEO strategists will review and start the outreach campaign."
+    description="Fill out the simple form below to submit your campaign requirements. Our SEO team will review and start your outreach campaign."
   />
 
   <section class="py-16 lg:py-20 reveal">
-    <div class="container-site">
-      <div class="grid gap-12 lg:grid-cols-12 items-start">
-        
-        <!-- بایاں کالم -->
-        <div class="lg:col-span-4 space-y-6">
-          <div class="card p-6 border-blue-100 bg-gradient-to-br from-blue-50/10 to-transparent rounded-2xl">
-            <h2 class="text-lg font-bold text-slate-950">How It Works</h2>
-            <ul class="mt-4 space-y-3.5 text-xs text-slate-500 font-semibold">
-              <li class="flex items-start gap-2">
-                <span class="text-blue-600 font-bold">1.</span>
-                <span>Fill in your website URL, budget, and anchor texts.</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-blue-600 font-bold">2.</span>
-                <span>Choose if you want our SEO experts to write the articles for you.</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-blue-600 font-bold">3.</span>
-                <span>We manual pitch high-authority blogs in your niche.</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-blue-600 font-bold">4.</span>
-                <span>Get your live, permanent backlinks indexed quickly.</span>
-              </li>
-            </ul>
-          </div>
+    <!-- max-w-3xl پورے پیج کو بالکل درمیان میں خوبصورت شیپ دیتا ہے -->
+    <div class="container-site max-w-3xl">
+      <form id="order-form" class="card rounded-3xl p-8 lg:p-10 shadow-lg shadow-blue-50/50" action="#" method="POST">
+        <h3 class="text-xl font-bold text-slate-950">Campaign Details</h3>
+        <p class="mt-1 text-xs text-slate-400">Please provide your details below. We will review and contact you within 10 minutes.</p>
 
-          <div class="card p-6 border-emerald-100 bg-gradient-to-br from-emerald-50/10 to-transparent rounded-2xl relative overflow-hidden">
-            <div class="absolute top-4 right-4 flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </div>
-            <h3 class="text-xs font-bold uppercase tracking-wider text-emerald-600">Need Help First?</h3>
-            <p class="mt-2 text-sm font-bold text-slate-950">Chat directly on WhatsApp!</p>
-            <p class="mt-1 text-xs text-slate-500">Our support is online to help you place your order.</p>
-            <a href="https://wa.me/923327810261" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center justify-center gap-1.5 w-full rounded-full bg-emerald-600 py-2 px-4 text-xs font-bold text-white hover:bg-emerald-700 transition-colors">
-              Chat on WhatsApp
-            </a>
+        <div class="mt-8 grid gap-5 sm:grid-cols-2">
+          <!-- نام -->
+          <div>
+            <label for="order-name" class="mb-1.5 block text-xs font-semibold text-slate-700">Your Full Name *</label>
+            <input
+              type="text"
+              id="order-name"
+              name="name"
+              required
+              placeholder="Your Name"
+              class="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm focus:border-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-50 transition-all"
+            />
+          </div>
+          <!-- ای میل -->
+          <div>
+            <label for="order-email" class="mb-1.5 block text-xs font-semibold text-slate-700">Email Address *</label>
+            <input
+              type="email"
+              id="order-email"
+              name="email"
+              required
+              placeholder="name@email.com"
+              class="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm focus:border-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-50 transition-all"
+            />
           </div>
         </div>
 
-        <!-- دایاں کالم -->
-        <div class="lg:col-span-8">
-          <form id="order-form" class="card rounded-3xl p-8 lg:p-10 shadow-lg shadow-blue-50/50" action="#" method="POST">
-            <h3 class="text-xl font-bold text-slate-950">Campaign Details</h3>
-            <p class="mt-1 text-xs text-slate-400">Please provide as much detail as possible. Fields marked with * are required.</p>
-
-            <div class="mt-8 grid gap-5 sm:grid-cols-2">
-              <div>
-                <label for="order-name" class="mb-1.5 block text-xs font-semibold text-slate-700">Your Full Name *</label>
-                <input
-                  type="text"
-                  id="order-name"
-                  name="name"
-                  required
-                  placeholder="Your Name"
-                  class="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm focus:border-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-50 transition-all"
-                />
-              </div>
-              <div>
-                <label for="order-email" class="mb-1.5 block text-xs font-semibold text-slate-700">Email Address *</label>
-                <input
-                  type="email"
-                  id="order-email"
-                  name="email"
-                  required
-                  placeholder="name@email.com"
-                  class="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm focus:border-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-50 transition-all"
-                />
-              </div>
-            </div>
-
-            <div class="mt-5 grid gap-5 sm:grid-cols-2">
-              <div>
-                <label for="target-site" class="mb-1.5 block text-xs font-semibold text-slate-700">Your Website URL *</label>
-                <input
-                  type="text"
-                  id="target-site"
-                  name="target_site"
-                  required
-                  placeholder="https://yourwebsite.com"
-                  class="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm focus:border-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-50 transition-all"
-                />
-              </div>
-              <div>
-                <label for="order-budget" class="mb-1.5 block text-xs font-semibold text-slate-700">Total Campaign Budget *</label>
-                <select
-                  id="order-budget"
-                  name="budget"
-                  required
-                  class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-50 transition-all"
-                >
-                  <option value="">Select budget range</option>
-                  {budgetOptions.map(opt => (
-                    <option value={opt.value}>{opt.label}</option>
-                  ))}
-                </select>
-              </div>
-            </div>
-
-            <div class="mt-5 grid gap-5 sm:grid-cols-2">
-              <div>
-                <label for="anchor-text" class="mb-1.5 block text-xs font-semibold text-slate-700">Anchor Text & Backlink Target *</label>
-                <input
-                  type="text"
-                  id="anchor-text"
-                  name="anchor_text"
-                  required
-                  placeholder="Example: 'SEO agency' linking to 'yoursite.com/seo'"
-                  class="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm focus:border-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-50 transition-all"
-                />
-              </div>
-              <div>
-                <label for="min-requirement" class="mb-1.5 block text-xs font-semibold text-slate-700">Minimum Site DR Required *</label>
-                <select
-                  id="min-requirement"
-                  name="min_requirement"
-                  required
-                  class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-50 transition-all"
-                >
-                  <option value="">Select authority level</option>
-                  <option value="da-30">Basic (DR 30+ blogs)</option>
-                  <option value="da-50">Standard (DR 50+ blogs)</option>
-                  <option value="da-70">High-Authority (DR 70+ blogs)</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="mt-5">
-              <label class="mb-2 block text-xs font-semibold text-slate-700">Do you have an article ready? *</label>
-              <div class="grid gap-3 sm:grid-cols-2">
-                <label class="flex items-center gap-3 card p-4 cursor-pointer hover:border-blue-600 transition-colors rounded-2xl">
-                  <input type="radio" name="article_option" value="write" checked class="h-4 w-4 text-blue-600 focus:ring-blue-500" />
-                  <div>
-                    <p class="text-xs font-bold text-slate-950">Write it for me</p>
-                    <p class="text-[10px] text-slate-400">Our team writes high-quality SEO content.</p>
-                  </div>
-                </label>
-                <label class="flex items-center gap-3 card p-4 cursor-pointer hover:border-blue-600 transition-colors rounded-2xl">
-                  <input type="radio" name="article_option" value="provide" class="h-4 w-4 text-blue-600 focus:ring-blue-500" />
-                  <div>
-                    <p class="text-xs font-bold text-slate-950">I will provide my own article</p>
-                    <p class="text-[10px] text-slate-400">Must be 100% original and 800+ words.</p>
-                  </div>
-                </label>
-              </div>
-            </div>
-
-            <div class="mt-5">
-              <label for="order-instructions" class="mb-1.5 block text-xs font-semibold text-slate-700">Special Instructions / Target Niche</label>
-              <textarea
-                id="order-instructions"
-                name="message"
-                rows="4"
-                placeholder="List your target niche (e.g., Tech, Finance) or paste any specific guidelines here..."
-                class="w-full resize-y rounded-2xl border border-slate-200 px-4 py-3 text-sm focus:border-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-50 transition-all"
-              ></textarea>
-            </div>
-
-            <button type="submit" class="btn-primary mt-6 w-full sm:w-auto py-3 px-8 shadow-lg shadow-blue-200">
-              Submit Your Order
-            </button>
-          </form>
+        <div class="mt-5 grid gap-5 sm:grid-cols-2">
+          <!-- ویب سائٹ لنک -->
+          <div>
+            <label for="target-site" class="mb-1.5 block text-xs font-semibold text-slate-700">Your Website URL *</label>
+            <input
+              type="text"
+              id="target-site"
+              name="target_site"
+              required
+              placeholder="https://yourwebsite.com"
+              class="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm focus:border-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-50 transition-all"
+            />
+          </div>
+          <!-- اپنی مرضی کا بجٹ لکھنے والا خانہ (ٹیکسٹ فیلڈ) -->
+          <div>
+            <label for="order-budget" class="mb-1.5 block text-xs font-semibold text-slate-700">Your Campaign Budget ($) *</label>
+            <input
+              type="text"
+              id="order-budget"
+              name="budget"
+              required
+              placeholder="Enter your budget (e.g. $150, $500)"
+              class="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm focus:border-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-50 transition-all"
+            />
+          </div>
         </div>
-      </div>
+
+        <div class="mt-5 grid gap-5 sm:grid-cols-2">
+          <!-- اینکر ٹیکسٹ -->
+          <div>
+            <label for="anchor-text" class="mb-1.5 block text-xs font-semibold text-slate-700">Anchor Text & Backlink Target *</label>
+            <input
+              type="text"
+              id="anchor-text"
+              name="anchor_text"
+              required
+              placeholder="Example: 'SEO agency' linking to 'yoursite.com/seo'"
+              class="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm focus:border-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-50 transition-all"
+            />
+          </div>
+          <!-- ڈومین ریکیورمنٹ -->
+          <div>
+            <label for="min-requirement" class="mb-1.5 block text-xs font-semibold text-slate-700">Minimum Site DR Required *</label>
+            <select
+              id="min-requirement"
+              name="min_requirement"
+              required
+              class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm focus:border-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-50 transition-all"
+            >
+              <option value="">Select authority level</option>
+              <option value="da-30">Basic (DR 30+ blogs)</option>
+              <option value="da-50">Standard (DR 50+ blogs)</option>
+              <option value="da-70">High-Authority (DR 70+ blogs)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- آرٹیکل آپشن -->
+        <div class="mt-5">
+          <label class="mb-2 block text-xs font-semibold text-slate-700">Do you have an article ready? *</label>
+          <div class="grid gap-3 sm:grid-cols-2">
+            <label class="flex items-center gap-3 card p-4 cursor-pointer hover:border-blue-600 transition-colors rounded-2xl">
+              <input type="radio" name="article_option" value="write" checked class="h-4 w-4 text-blue-600 focus:ring-blue-500" />
+              <div>
+                <p class="text-xs font-bold text-slate-950">Write it for me</p>
+                <p class="text-[10px] text-slate-400">Our team writes high-quality SEO content.</p>
+              </div>
+            </label>
+            <label class="flex items-center gap-3 card p-4 cursor-pointer hover:border-blue-600 transition-colors rounded-2xl">
+              <input type="radio" name="article_option" value="provide" class="h-4 w-4 text-blue-600 focus:ring-blue-500" />
+              <div>
+                <p class="text-xs font-bold text-slate-950">I will provide my own article</p>
+                <p class="text-[10px] text-slate-400">Must be 100% original and 800+ words.</p>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- اسپیشل ہدایات -->
+        <div class="mt-5">
+          <label for="order-instructions" class="mb-1.5 block text-xs font-semibold text-slate-700">Special Instructions / Target Niche</label>
+          <textarea
+            id="order-instructions"
+            name="message"
+            rows="4"
+            placeholder="List your target niche (e.g., Tech, Finance) or paste any specific guidelines here..."
+            class="w-full resize-y rounded-2xl border border-slate-200 px-4 py-3 text-sm focus:border-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-50 transition-all"
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary mt-6 w-full sm:w-auto py-3 px-8 shadow-lg shadow-blue-200">
+          Submit Your Order
+        </button>
+      </form>
     </div>
   </section>
-
-  <div class="reveal">
-    <SocialProof />
-  </div>
 </BaseLayout>
 
 <style>
+  /* اسکرول ریویل کی بنیادی حالت */
   .reveal {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
   }
+
+  /* جب اسکرول کر کے ایلیمنٹ ظاہر ہو */
   .reveal.show {
     opacity: 1;
     transform: translateY(0);
@@ -209,6 +161,7 @@ const budgetOptions = [
 </style>
 
 <script>
+  // فارم سبمیشن اسکرپٹ (آرڈر سبمٹ کرنے پر الرٹ)
   const form = document.getElementById('order-form');
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -225,6 +178,7 @@ const budgetOptions = [
     }, 2000);
   });
 
+  // اسکرول ریویل لاجک
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
