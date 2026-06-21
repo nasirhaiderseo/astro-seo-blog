@@ -26,7 +26,7 @@ const budgetOptions = [
     <div class="container-site">
       <div class="grid gap-12 lg:grid-cols-12 items-start">
         
-        <!-- بایاں کالم: آرڈر کی تفصیلات (آسان گائیڈ لائنز) -->
+        <!-- بایاں کالم -->
         <div class="lg:col-span-4 space-y-6">
           <div class="card p-6 border-blue-100 bg-gradient-to-br from-blue-50/10 to-transparent rounded-2xl">
             <h2 class="text-lg font-bold text-slate-950">How It Works</h2>
@@ -64,14 +64,13 @@ const budgetOptions = [
           </div>
         </div>
 
-        <!-- دایاں کالم: تفصیلی آرڈر فارم -->
+        <!-- دایاں کالم -->
         <div class="lg:col-span-8">
           <form id="order-form" class="card rounded-3xl p-8 lg:p-10 shadow-lg shadow-blue-50/50" action="#" method="POST">
             <h3 class="text-xl font-bold text-slate-950">Campaign Details</h3>
             <p class="mt-1 text-xs text-slate-400">Please provide as much detail as possible. Fields marked with * are required.</p>
 
             <div class="mt-8 grid gap-5 sm:grid-cols-2">
-              <!-- نام -->
               <div>
                 <label for="order-name" class="mb-1.5 block text-xs font-semibold text-slate-700">Your Full Name *</label>
                 <input
@@ -83,7 +82,6 @@ const budgetOptions = [
                   class="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm focus:border-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-50 transition-all"
                 />
               </div>
-              <!-- ای میل -->
               <div>
                 <label for="order-email" class="mb-1.5 block text-xs font-semibold text-slate-700">Email Address *</label>
                 <input
@@ -98,7 +96,6 @@ const budgetOptions = [
             </div>
 
             <div class="mt-5 grid gap-5 sm:grid-cols-2">
-              <!-- کلائنٹ کی ویب سائٹ لنک -->
               <div>
                 <label for="target-site" class="mb-1.5 block text-xs font-semibold text-slate-700">Your Website URL *</label>
                 <input
@@ -110,7 +107,6 @@ const budgetOptions = [
                   class="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm focus:border-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-50 transition-all"
                 />
               </div>
-              <!-- بجٹ -->
               <div>
                 <label for="order-budget" class="mb-1.5 block text-xs font-semibold text-slate-700">Total Campaign Budget *</label>
                 <select
@@ -128,7 +124,6 @@ const budgetOptions = [
             </div>
 
             <div class="mt-5 grid gap-5 sm:grid-cols-2">
-              <!-- اینکر ٹیکسٹ اور بیک لنک ڈسٹینیشن لنک -->
               <div>
                 <label for="anchor-text" class="mb-1.5 block text-xs font-semibold text-slate-700">Anchor Text & Backlink Target *</label>
                 <input
@@ -140,7 +135,6 @@ const budgetOptions = [
                   class="w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm focus:border-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-50 transition-all"
                 />
               </div>
-              <!-- ڈومین ریکیورمنٹ -->
               <div>
                 <label for="min-requirement" class="mb-1.5 block text-xs font-semibold text-slate-700">Minimum Site DR Required *</label>
                 <select
@@ -157,7 +151,6 @@ const budgetOptions = [
               </div>
             </div>
 
-            <!-- آرٹیکل کی ریکوائرمنٹ (لکھنا ہے یا لکھوانا ہے) -->
             <div class="mt-5">
               <label class="mb-2 block text-xs font-semibold text-slate-700">Do you have an article ready? *</label>
               <div class="grid gap-3 sm:grid-cols-2">
@@ -178,7 +171,6 @@ const budgetOptions = [
               </div>
             </div>
 
-            <!-- اسپیشل انسٹراسکشنز -->
             <div class="mt-5">
               <label for="order-instructions" class="mb-1.5 block text-xs font-semibold text-slate-700">Special Instructions / Target Niche</label>
               <textarea
@@ -199,21 +191,17 @@ const budgetOptions = [
     </div>
   </section>
 
-  <!-- ٹرسٹ اور سوشل پروف -->
   <div class="reveal">
     <SocialProof />
   </div>
 </BaseLayout>
 
 <style>
-  /* اسکرول ریویل کی بنیادی حالت */
   .reveal {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
   }
-
-  /* جب اسکرول کر کے ایلیمنٹ ظاہر ہو */
   .reveal.show {
     opacity: 1;
     transform: translateY(0);
@@ -221,7 +209,6 @@ const budgetOptions = [
 </style>
 
 <script>
-  // فارم سبمیشن اسکرپٹ (آرڈر سبمٹ کرنے پر پاپ اب)
   const form = document.getElementById('order-form');
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -238,7 +225,6 @@ const budgetOptions = [
     }, 2000);
   });
 
-  // اسکرول ریویل لاجک
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
