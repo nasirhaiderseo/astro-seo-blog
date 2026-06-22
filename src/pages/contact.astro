@@ -17,7 +17,7 @@ import PageHero from '../components/PageHero.astro';
     <div class="container-site">
       <div class="grid gap-12 lg:grid-cols-5 items-start">
         
-        <!-- بایاں کالم: رابطہ کارڈز -->
+        <!-- بایاں کالم -->
         <div class="lg:col-span-2 space-y-4">
           <h2 class="text-xl font-extrabold text-slate-950">Quick Contact</h2>
           <p class="text-sm text-slate-500">Tap below to message us directly. We reply quickly.</p>
@@ -32,7 +32,6 @@ import PageHero from '../components/PageHero.astro';
 
           <!-- واٹس ایپ کارڈ -->
           <div class="card p-5 border-emerald-100 hover:border-emerald-300 hover:shadow-lg hover:shadow-emerald-50 transition-all duration-300 rounded-2xl relative overflow-hidden bg-gradient-to-br from-emerald-50/10 to-transparent">
-            <!-- لائیو گرین پلسنگ ڈاٹ -->
             <div class="absolute top-5 right-5 flex h-3 w-3">
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
@@ -49,7 +48,7 @@ import PageHero from '../components/PageHero.astro';
           </div>
         </div>
 
-        <!-- دایاں کالم: فارم اور نئی اپ ڈیٹڈ سروسز -->
+        <!-- دایاں کالم -->
         <div class="lg:col-span-3">
           <form id="contact-form" class="card rounded-3xl p-8 lg:p-10 shadow-lg shadow-blue-50/50" action="#" method="POST">
             <h3 class="text-xl font-bold text-slate-950">Send a Message</h3>
@@ -109,7 +108,6 @@ import PageHero from '../components/PageHero.astro';
             </div>
 
             <div class="mt-4">
-              <!-- سروسز لسٹ جس میں Guest Posting، Keyword Research اور Other آپشنز شامل کر دیے گئے ہیں -->
               <label for="service" class="mb-1.5 block text-xs font-semibold text-slate-700">Service You Need *</label>
               <select
                 id="service"
@@ -152,21 +150,7 @@ import PageHero from '../components/PageHero.astro';
 </BaseLayout>
 
 <style>
-  /* واٹس ایپ فلوٹنگ اینیمیشن */
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-4px);
-    }
-  }
-
-  .animate-float {
-    animation: float 2.5s ease-in-out infinite;
-  }
-
-  /* اسکرول ریویل (Scroll Reveal) کی بنیادی حالت */
+  /* اسکرول ریویل کی بنیادی حالت */
   .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -181,20 +165,48 @@ import PageHero from '../components/PageHero.astro';
 </style>
 
 <script>
-  // فارم سبمیشن اسکرپٹ
+  // فارم سبمیشن اسکرپٹ (آرڈر سبمٹ کرنے پر الرٹ)
   const form = document.getElementById('contact-form');
-  form?.addEventListener('submit', (e) => {
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = form.querySelector('button[type="submit"]');
     if (!(btn instanceof HTMLButtonElement)) return;
     const original = btn.textContent;
-    btn.textContent = '✓ Sent Successfully!';
+    btn.textContent = 'Sending...';
     btn.disabled = true;
-    setTimeout(() => {
-      btn.textContent = original;
+
+    // فارم کا سارا ڈیٹا اکٹھا کریں
+    const formData = new FormData(form as HTMLFormElement);
+    
+    // آپ کا لائیو Web3Forms کا کیمپس کوڈ
+    formData.append("access_key", "2381397f-2d26-4f87-8451-2b736d1d70e3");
+    formData.append("subject", "New General Contact Message Recieved!");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      if (response.ok) {
+        btn.textContent = '✓ Sent Successfully!';
+        alert("Message Sent Successfully! We will review and reply within 24 hours.");
+        form.reset();
+      } else {
+        btn.textContent = 'Error!';
+        btn.disabled = false;
+        alert("Something went wrong. Please try again or chat via WhatsApp.");
+      }
+    } catch (err) {
+      btn.textContent = 'Error!';
       btn.disabled = false;
-      form.reset();
-    }, 3000);
+      alert("Connection error. Please try again.");
+    } finally {
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.disabled = false;
+      }, 3000);
+    }
   });
 
   // اسکرول ریویل لاجک
