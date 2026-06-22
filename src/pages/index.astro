@@ -8,6 +8,40 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
 );
 
 const latestPosts = posts.slice(0, 3);
+
+const heroWords = ["SEO Success", "Guest Posts", "Link Power", "Real Authority"];
+
+const publishers = [
+  { name: "Forbes.com", dr: 95 },
+  { name: "TechCrunch.com", dr: 94 },
+  { name: "BusinessInsider.com", dr: 92 },
+  { name: "Entrepreneur.com", dr: 90 },
+  { name: "NYTimes.com", dr: 96 },
+  { name: "Wired.com", dr: 91 },
+  { name: "Inc.com", dr: 89 },
+  { name: "Mashable.com", dr: 88 },
+];
+
+const testimonials = [
+  { name: "Sarah Malik", role: "SEO Director, Brightlane Digital", text: "The DR and traffic numbers were exactly as promised. First agency we've used where the metrics actually held up after delivery.", rating: 5, big: true },
+  { name: "David Miller", role: "Founder, SaaSify", text: "Our organic traffic moved within the first month. Communication was clear the entire way through.", rating: 5 },
+  { name: "Elena Rostova", role: "Marketing Head, Velorum", text: "Fast turnaround and the support team actually answers questions instead of forwarding to a bot.", rating: 5 },
+  { name: "James Anderson", role: "Growth Lead, Northpeak", text: "Switched from a different vendor after getting burned by PBNs. This was a completely different experience — real sites, real editors.", rating: 5, big: true },
+  { name: "Aisha Khan", role: "Founder, Aisha & Co", text: "Ranking jumped noticeably within two months. Would recommend to any small business owner who's nervous about SEO.", rating: 5 },
+  { name: "Liam O'Connor", role: "SEO Specialist", text: "Checked every placement manually. Couldn't find a single footprint issue across 40+ links.", rating: 5 },
+  { name: "Carlos Mendez", role: "Agency Partner, Mendez Media", text: "They replaced two underperforming links without hesitation when we flagged them. That kind of accountability is rare.", rating: 5 },
+  { name: "Yuki Tanaka", role: "Digital Marketer", text: "The managed outreach package saved our small team dozens of hours every single week.", rating: 5, big: true },
+  { name: "Chloe Dupont", role: "Content Head, Solace Brands", text: "Topical authority content plan was genuinely well researched, not generic filler.", rating: 5 },
+  { name: "Zayn Ahmed", role: "Founder, CartLoop", text: "Organic impressions are up significantly and the links are still live a year later.", rating: 5 },
+  { name: "Sophia Vester", role: "Traffic Lead", text: "Dashboard makes it easy to filter by niche. Saved me from a lot of back-and-forth emails.", rating: 5 },
+  { name: "Marcus Aurel", role: "Independent SEO Consultant", text: "Editorial placements added real link equity to client pages I'd struggled to move for months.", rating: 5, big: true },
+  { name: "Fatima Al-Sayed", role: "Brand Manager, Lumora", text: "Traffic numbers lined up with what we saw in our own analytics. That trust matters a lot.", rating: 5 },
+  { name: "Oliver Schmidt", role: "SaaS Marketer", text: "The strategy call alone was worth it, gave us a roadmap we still reference.", rating: 5 },
+  { name: "Nina Ivanova", role: "Webmaster", text: "Outreach was actually manual, not templated blasts. Relevance was excellent.", rating: 5 },
+  { name: "Ryan Reynolds", role: "Agency Lead, Northstar SEO", text: "We moved all our link-building subcontracts here for consistency across every client account.", rating: 5, big: true },
+  { name: "Amara George", role: "SEO Strategist", text: "Support replies within minutes, even on the smaller starter plan.", rating: 5 },
+  { name: "Thomas Wright", role: "Publisher Relations Director", text: "Editorial standards are tight, only real sites with real audiences get listed.", rating: 5 },
+];
 ---
 
 <BaseLayout
@@ -26,7 +60,11 @@ const latestPosts = posts.slice(0, 3);
       <!-- مین ہیڈنگ -->
       <h1 class="mx-auto mt-4 max-w-4xl text-4xl font-extrabold leading-tight tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
         Scale Your Brand With <br/>
-        <span class="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent drop-shadow-sm">SEO Success</span>
+        <span
+          id="hero-typewriter"
+          class="hero-typewriter bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent drop-shadow-sm"
+          data-words={JSON.stringify(heroWords)}
+        ></span>
       </h1>
 
       <!-- ڈسکرپشن -->
@@ -36,7 +74,7 @@ const latestPosts = posts.slice(0, 3);
 
       <!-- ایکشن بٹنز (واٹس ایپ اور ای میل کے ساتھ) -->
       <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-        <a href="/contact" class="btn-primary w-full sm:w-auto animate-pulse-glow">
+        <a href="/order" class="btn-primary w-full sm:w-auto animate-pulse-glow">
           <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
           Start a project
         </a>
@@ -57,28 +95,32 @@ const latestPosts = posts.slice(0, 3);
     </div>
   </section>
 
-  <!-- پبلشرز لسٹنگ بار (Editorial Logos) -->
+  <!-- پبلشرز لسٹنگ بار (Editorial Logos) — دائیں سے بائیں خود کار حرکت -->
   <section class="border-y border-slate-100 bg-slate-50/50 py-6 overflow-hidden">
-    <div class="container-site">
-      <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-xs font-bold uppercase tracking-wider text-slate-400">
-        <span class="flex items-center gap-2 transition-colors hover:text-blue-600 cursor-default">Forbes.com <span class="rounded bg-emerald-50 px-1.5 py-0.5 text-[9px] text-emerald-600 font-semibold">DR 95</span></span>
-        <span class="flex items-center gap-2 transition-colors hover:text-blue-600 cursor-default">TechCrunch.com <span class="rounded bg-emerald-50 px-1.5 py-0.5 text-[9px] text-emerald-600 font-semibold">DR 94</span></span>
-        <span class="flex items-center gap-2 transition-colors hover:text-blue-600 cursor-default">BusinessInsider.com <span class="rounded bg-emerald-50 px-1.5 py-0.5 text-[9px] text-emerald-600 font-semibold">DR 92</span></span>
-        <span class="flex items-center gap-2 transition-colors hover:text-blue-600 cursor-default">Entrepreneur.com <span class="rounded bg-emerald-50 px-1.5 py-0.5 text-[9px] text-emerald-600 font-semibold">DR 90</span></span>
+    <div class="ticker-mask">
+      <div class="ticker-track-rtl">
+        {[...publishers, ...publishers].map((p) => (
+          <span class="ticker-chip">
+            {p.name}
+            <span class="rounded bg-emerald-50 px-1.5 py-0.5 text-[9px] text-emerald-600 font-semibold">DR {p.dr}</span>
+          </span>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- کاؤنٹرز (Dark Stats Section) — اینیمیٹڈ اسکرول ایفیکٹ -->
+  <!-- کاؤنٹرز (Dark Stats Section) — اسکرول پر گنتی والی اینیمیشن -->
   <section class="py-16 reveal">
     <div class="container-site">
       <div class="rounded-3xl bg-slate-950 p-10 shadow-2xl shadow-blue-900/10 border border-slate-900">
-        <div class="grid grid-cols-2 gap-y-10 gap-x-4 md:grid-cols-4 md:gap-y-0 text-center">
+        <div class="grid grid-cols-2 gap-y-10 gap-x-4 md:grid-cols-4 md:gap-y-0 text-center counter-group">
           <div class="transition-transform hover:scale-105 duration-300">
             <div class="mx-auto flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600/10 text-blue-400">
               <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
             </div>
-            <p class="mt-4 text-3xl font-extrabold text-white">100K+</p>
+            <p class="mt-4 text-3xl font-extrabold text-white">
+              <span class="counter-value" data-target="100" data-suffix="K+">0</span>
+            </p>
             <p class="mt-1 text-xs font-medium text-slate-400">Links Delivered</p>
           </div>
 
@@ -87,7 +129,9 @@ const latestPosts = posts.slice(0, 3);
             <div class="mx-auto flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600/10 text-blue-400">
               <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </div>
-            <p class="mt-4 text-3xl font-extrabold text-white">5,000+</p>
+            <p class="mt-4 text-3xl font-extrabold text-white">
+              <span class="counter-value" data-target="5000" data-suffix="+">0</span>
+            </p>
             <p class="mt-1 text-xs font-medium text-slate-400">Happy Clients</p>
           </div>
 
@@ -95,7 +139,9 @@ const latestPosts = posts.slice(0, 3);
             <div class="mx-auto flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600/10 text-blue-400">
               <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
             </div>
-            <p class="mt-4 text-3xl font-extrabold text-white">98%</p>
+            <p class="mt-4 text-3xl font-extrabold text-white">
+              <span class="counter-value" data-target="98" data-suffix="%">0</span>
+            </p>
             <p class="mt-1 text-xs font-medium text-slate-400">Success Rate</p>
           </div>
 
@@ -103,7 +149,9 @@ const latestPosts = posts.slice(0, 3);
             <div class="mx-auto flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600/10 text-blue-400">
               <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
             </div>
-            <p class="mt-4 text-3xl font-extrabold text-white">50+</p>
+            <p class="mt-4 text-3xl font-extrabold text-white">
+              <span class="counter-value" data-target="50" data-suffix="+">0</span>
+            </p>
             <p class="mt-1 text-xs font-medium text-slate-400">Industries Served</p>
           </div>
         </div>
@@ -174,7 +222,7 @@ const latestPosts = posts.slice(0, 3);
               <li class="flex items-center gap-2.5"><span class="text-emerald-500 font-bold">✓</span> Permanent Links</li>
             </ul>
           </div>
-          <a href="/contact" class="btn-secondary w-full text-center mt-8 py-2.5">Get Started</a>
+          <a href="/order" class="btn-secondary w-full text-center mt-8 py-2.5">Get Started</a>
         </div>
 
         <!-- اسٹینڈرڈ پلان (Most Popular) -->
@@ -193,7 +241,7 @@ const latestPosts = posts.slice(0, 3);
               <li class="flex items-center gap-2.5"><span class="text-emerald-500 font-bold">✓</span> 24/7 Dedicated Support</li>
             </ul>
           </div>
-          <a href="/contact" class="btn-primary w-full text-center mt-8 py-2.5 shadow-lg shadow-blue-200">Buy Standard</a>
+          <a href="/order" class="btn-primary w-full text-center mt-8 py-2.5 shadow-lg shadow-blue-200">Buy Standard</a>
         </div>
 
         <!-- انٹرپرائز پلان -->
@@ -211,26 +259,68 @@ const latestPosts = posts.slice(0, 3);
               <li class="flex items-center gap-2.5"><span class="text-emerald-500 font-bold">✓</span> Advanced Competitor Analysis</li>
             </ul>
           </div>
-          <a href="/contact" class="btn-secondary w-full text-center mt-8 py-2.5">Contact Us</a>
+          <a href="/order" class="btn-secondary w-full text-center mt-8 py-2.5">Contact Us</a>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- بلاگ سیکشن — اینیمیٹڈ اسکرول ایفیکٹ -->
-  <section class="py-20 bg-slate-50/30 border-t border-slate-100 reveal">
+  <!-- ٹیسٹیمونیلز سیکشن — دو قطاریں، خود کار حرکت (بائیں/دائیں) -->
+  <section class="py-20 bg-slate-50/30 border-t border-slate-100 reveal overflow-hidden">
     <div class="container-site">
-      <div class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
-        <div>
-          <span class="section-label">Insights</span>
-          <h2 class="mt-4 text-2xl font-extrabold text-slate-950">From the blog</h2>
+      <div class="text-center">
+        <span class="section-label">Client Reviews</span>
+        <h2 class="mt-4 text-3xl font-extrabold text-slate-950">What Our Clients Say</h2>
+        <p class="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-slate-500">Real feedback from agencies and brands who grew with Web Grouth.</p>
+      </div>
+    </div>
+
+    <div class="mt-12 space-y-6">
+      <!-- قطار اول: بائیں سے دائیں -->
+      <div class="testi-mask">
+        <div class="testi-track testi-track-ltr">
+          {[...testimonials, ...testimonials].map((t) => (
+            <div class={`testi-card ${t.big ? 'testi-card-big' : ''}`}>
+              <div class="flex items-center gap-3">
+                <div class="testi-avatar">{t.name.charAt(0)}</div>
+                <div class="min-w-0">
+                  <p class="testi-name">{t.name}</p>
+                  <p class="testi-role">{t.role}</p>
+                </div>
+              </div>
+              <div class="testi-stars">
+                {Array.from({ length: t.rating }).map(() => (
+                  <svg viewBox="0 0 20 20" class="h-3.5 w-3.5 fill-current"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6L1.3 7.7l6.1-.6L10 1.5z"/></svg>
+                ))}
+              </div>
+              <p class="testi-text">{t.text}</p>
+            </div>
+          ))}
         </div>
-        <a href="/blog" class="text-sm font-semibold text-blue-600 hover:text-blue-700">All articles →</a>
       </div>
 
-      <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {latestPosts.map((post) => <BlogCard post={post} />)}
+      <!-- قطار دوم: دائیں سے بائیں -->
+      <div class="testi-mask">
+        <div class="testi-track testi-track-rtl">
+          {[...testimonials.slice().reverse(), ...testimonials.slice().reverse()].map((t) => (
+            <div class={`testi-card ${t.big ? 'testi-card-big' : ''}`}>
+              <div class="flex items-center gap-3">
+                <div class="testi-avatar">{t.name.charAt(0)}</div>
+                <div class="min-w-0">
+                  <p class="testi-name">{t.name}</p>
+                  <p class="testi-role">{t.role}</p>
+                </div>
+              </div>
+              <div class="testi-stars">
+                {Array.from({ length: t.rating }).map(() => (
+                  <svg viewBox="0 0 20 20" class="h-3.5 w-3.5 fill-current"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6L1.3 7.7l6.1-.6L10 1.5z"/></svg>
+                ))}
+              </div>
+              <p class="testi-text">{t.text}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </section>
@@ -242,7 +332,7 @@ const latestPosts = posts.slice(0, 3);
         <h2 class="text-xl font-bold text-slate-950">Discuss your SEO roadmap</h2>
         <p class="mt-2 text-sm text-slate-500">A straightforward conversation. No pitch decks required. Contact us at hello@webgrouth.com</p>
       </div>
-      <a href="/contact" class="btn-primary shrink-0 w-full sm:w-auto">Get in touch</a>
+      <a href="/order" class="btn-primary shrink-0 w-full sm:w-auto">Get in touch</a>
     </div>
   </section>
 </BaseLayout>
@@ -305,6 +395,151 @@ const latestPosts = posts.slice(0, 3);
     opacity: 1;
     transform: translateY(0);
   }
+
+  /* ===== ہیرو ٹائپ رائٹر (الفاظ کا بدلنا) ===== */
+  .hero-typewriter {
+    display: inline-block;
+    min-height: 1.2em;
+  }
+  .hero-typewriter::after {
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 0.9em;
+    margin-left: 4px;
+    background: currentColor;
+    -webkit-text-fill-color: #2563eb;
+    vertical-align: text-bottom;
+    animation: caretBlink 0.85s step-end infinite;
+  }
+  @keyframes caretBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  /* ===== پبلشرز ٹِکر (دائیں سے بائیں خود کار حرکت) ===== */
+  .ticker-mask {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .ticker-track-rtl {
+    display: flex;
+    width: max-content;
+    gap: 2rem;
+    animation: tickerScroll 28s linear infinite;
+  }
+  .ticker-mask:hover .ticker-track-rtl {
+    animation-play-state: paused;
+  }
+  @keyframes tickerScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .ticker-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #475569;
+  }
+
+  /* ===== ٹیسٹیمونیلز موو ہونے والی قطاریں ===== */
+  .testi-mask {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+  }
+  .testi-track {
+    display: flex;
+    width: max-content;
+    gap: 1.25rem;
+    padding: 0 0.25rem;
+  }
+  .testi-track-ltr {
+    animation: testiScrollLTR 55s linear infinite;
+  }
+  .testi-track-rtl {
+    animation: testiScrollRTL 60s linear infinite;
+  }
+  .testi-mask:hover .testi-track {
+    animation-play-state: paused;
+  }
+  @keyframes testiScrollLTR {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+  }
+  @keyframes testiScrollRTL {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .testi-card {
+    flex-shrink: 0;
+    width: 290px;
+    background: #fff;
+    border: 1.5px solid #f1f5f9;
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+  }
+  .testi-card-big {
+    width: 340px;
+  }
+  .testi-avatar {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #eff6ff;
+    color: #2563eb;
+    border: 2px solid #bfdbfe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 14px;
+  }
+  .testi-name {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .testi-role {
+    font-size: 11.5px;
+    color: #94a3b8;
+    font-weight: 500;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .testi-stars {
+    display: flex;
+    gap: 2px;
+    color: #f59e0b;
+    margin-top: 10px;
+  }
+  .testi-text {
+    margin-top: 10px;
+    font-size: 13px;
+    line-height: 1.55;
+    color: #475569;
+  }
+
+  @media (max-width: 640px) {
+    .testi-card { width: 250px; padding: 18px; }
+    .testi-card-big { width: 280px; }
+    .testi-text { font-size: 12.5px; }
+  }
 </style>
 
 <script>
@@ -323,4 +558,80 @@ const latestPosts = posts.slice(0, 3);
   document.querySelectorAll('.reveal').forEach((el) => {
     observer.observe(el);
   });
+
+  // ===== ہیرو ٹائپ رائٹر لاجک =====
+  (function () {
+    const el = document.getElementById('hero-typewriter');
+    if (!el) return;
+    let words = [];
+    try {
+      words = JSON.parse(el.dataset.words || '[]');
+    } catch (e) {
+      words = [];
+    }
+    if (!words.length) return;
+
+    let wordIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function tick() {
+      const word = words[wordIndex];
+      if (!deleting) {
+        charIndex++;
+        el.textContent = word.substring(0, charIndex);
+        if (charIndex === word.length) {
+          deleting = true;
+          setTimeout(tick, 1800);
+          return;
+        }
+      } else {
+        charIndex--;
+        el.textContent = word.substring(0, charIndex);
+        if (charIndex === 0) {
+          deleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+        }
+      }
+      setTimeout(tick, deleting ? 45 : 85);
+    }
+    tick();
+  })();
+
+  // ===== اسکرول پر کاؤنٹر اینیمیشن لاجک =====
+  (function () {
+    const counters = document.querySelectorAll('.counter-value');
+    if (!counters.length) return;
+
+    function animateCounter(el) {
+      const target = parseInt(el.dataset.target || '0', 10);
+      const suffix = el.dataset.suffix || '';
+      const duration = 1600;
+      const startTime = performance.now();
+
+      function step(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(eased * target);
+        el.textContent = current.toLocaleString() + suffix;
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = target.toLocaleString() + suffix;
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+
+    counters.forEach((el) => counterObserver.observe(el));
+  })();
 </script>
